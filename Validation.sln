@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pixelfusion.Validation", "Pixelfusion.Validation\Pixelfusion.Validation.csproj", "{CD82979B-3888-4771-BC83-F894A2346016}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleValidation", "Pixelfusion.Validation\SimpleValidation.csproj", "{CD82979B-3888-4771-BC83-F894A2346016}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleValidation.Tests", "Pixelfusion.Validation.Tests\SimpleValidation.Tests.csproj", "{B5D06A43-E6D9-4110-AA31-584D7BB4AE05}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{CD82979B-3888-4771-BC83-F894A2346016}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD82979B-3888-4771-BC83-F894A2346016}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD82979B-3888-4771-BC83-F894A2346016}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5D06A43-E6D9-4110-AA31-584D7BB4AE05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5D06A43-E6D9-4110-AA31-584D7BB4AE05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5D06A43-E6D9-4110-AA31-584D7BB4AE05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5D06A43-E6D9-4110-AA31-584D7BB4AE05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
