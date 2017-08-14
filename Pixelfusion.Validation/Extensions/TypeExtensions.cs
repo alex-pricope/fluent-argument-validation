@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using SimpleValidation.Validators;
 
@@ -6,6 +7,12 @@ namespace SimpleValidation.Extensions
 {
     public static class TypeExtensions
     {
+        //DATE_TIME
+        public static DateTimeValidator Check(this DateTime inputDateTime)
+        {
+            return new DateTimeValidator(inputDateTime);
+        }
+        
         //STRING
         [Pure]
         public static StringValidator Check(this string inputValue)
