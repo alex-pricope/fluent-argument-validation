@@ -1,0 +1,20 @@
+﻿<Properties StartupConfiguration="{B5D06A43-E6D9-4110-AA31-584D7BB4AE05}|Unit Tests">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Pixelfusion.Validation/Extensions/TypeExtensions.cs">
+    <Files>
+      <File FileName="Pixelfusion.Validation/Validators/StringValidator.cs" Line="1" Column="1" />
+      <File FileName="Pixelfusion.Validation.Tests/Class1.cs" Line="17" Column="1" />
+      <File FileName="Pixelfusion.Validation.Tests/packages.config" Line="1" Column="1" />
+      <File FileName="Pixelfusion.Validation/Extensions/TypeExtensions.cs" Line="35" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/alexp/Documents/GitHub/validation/Pixelfusion.Validation.Tests/Class1.cs" relfile="Pixelfusion.Validation.Tests/Class1.cs" line="14" column="1" />
+      <Breakpoint file="/Users/alexp/Documents/GitHub/validation/Pixelfusion.Validation/Extensions/TypeExtensions.cs" relfile="Pixelfusion.Validation/Extensions/TypeExtensions.cs" line="34" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.SimpleValidation.Tests PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>

@@ -6,7 +6,6 @@ namespace SimpleValidation.Extensions
 {
     public static class TypeExtensions
     {
-
         //STRING
         [Pure]
         public static StringValidator Check(this string inputValue)
