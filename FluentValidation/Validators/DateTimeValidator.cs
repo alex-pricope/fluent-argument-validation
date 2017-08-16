@@ -1,7 +1,7 @@
 ﻿using System;
-using SimpleValidation.Criterias;
+using FluentValidation.Criterias;
 
-namespace SimpleValidation.Validators
+namespace FluentValidation.Validators
 {
     public sealed class DateTimeValidator
     {
@@ -15,7 +15,7 @@ namespace SimpleValidation.Validators
         public AndCriteria<DateTimeValidator> IsValid()
         {
             if (_target == DateTime.MinValue || _target == DateTime.MaxValue || _target == default(DateTime))
-                throw new ArgumentOutOfRangeException($"Input datetime object should be valid but found {_target}");
+                throw new ArgumentOutOfRangeException($"Input datetime argument should be valid but found {_target}");
 
             return new AndCriteria<DateTimeValidator>(this);
         }

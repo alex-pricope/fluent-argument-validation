@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SimpleValidation.Criterias;
+using FluentValidation.Criterias;
 
-namespace SimpleValidation.Validators
+namespace FluentValidation.Validators
 {
     public sealed class GenericDictionaryValidator<TKey,TValue>
     {
@@ -21,7 +21,7 @@ namespace SimpleValidation.Validators
 
             if (!(_target.Keys.Count >= minKeysCountValue && _target.Keys.Count <= maxKeysCountValue))
                 throw new ArgumentOutOfRangeException(
-                    $"Input dictionary keys count should be between {minKeysCountValue} and {maxKeysCountValue} but found {_target.Keys.Count}");
+                    $"Input dictionary argument keys count should be between {minKeysCountValue} and {maxKeysCountValue} but found {_target.Keys.Count}");
 
             return new AndCriteria<GenericDictionaryValidator<TKey, TValue>>(this);
         }
@@ -32,7 +32,7 @@ namespace SimpleValidation.Validators
 
             if (_target.Keys.Count >= maxKeysCountValue)
                 throw new ArgumentOutOfRangeException(
-                    $"Input dictionary keys count should not exceed {maxKeysCountValue} but found {_target.Keys.Count}");
+                    $"Input dictionary argument keys count should not exceed {maxKeysCountValue} but found {_target.Keys.Count}");
 
             return new AndCriteria<GenericDictionaryValidator<TKey, TValue>>(this);
         }
@@ -43,7 +43,7 @@ namespace SimpleValidation.Validators
 
             if (_target.Keys.Count <= minKeysCountValue)
                 throw new ArgumentOutOfRangeException(
-                    $"Input dictionary keys count should be at least {minKeysCountValue} but found {_target.Keys.Count}");
+                    $"Input dictionary argument keys count should be at least {minKeysCountValue} but found {_target.Keys.Count}");
 
             return new AndCriteria<GenericDictionaryValidator<TKey, TValue>>(this);
         }
@@ -52,7 +52,7 @@ namespace SimpleValidation.Validators
         {
             NotNull();
             if (!_target.Any())
-                throw new ArgumentOutOfRangeException($"Input dictionary should not be empty");
+                throw new ArgumentOutOfRangeException($"Input dictionary argument should not be empty");
 
             return new AndCriteria<GenericDictionaryValidator<TKey, TValue>>(this);
         }
@@ -60,7 +60,7 @@ namespace SimpleValidation.Validators
         public AndCriteria<GenericDictionaryValidator<TKey, TValue>> NotNull()
         {
             if (_target == null)
-                throw new ArgumentOutOfRangeException($"Input dictionary should not be null");
+                throw new ArgumentOutOfRangeException($"Input dictionary argument should not be null");
 
             return new AndCriteria<GenericDictionaryValidator<TKey, TValue>>(this);
         }

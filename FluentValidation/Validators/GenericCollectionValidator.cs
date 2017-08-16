@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SimpleValidation.Criterias;
+using FluentValidation.Criterias;
 
-namespace SimpleValidation.Validators
+namespace FluentValidation.Validators
 {
     public sealed class GenericCollectionValidator<T>
     {
@@ -18,7 +18,7 @@ namespace SimpleValidation.Validators
         {
             NotNull();
             if (!_target.Any())
-                throw new ArgumentOutOfRangeException($"Input collection should not be empty");
+                throw new ArgumentOutOfRangeException($"Input collection argument should not be empty");
 
             return new AndCriteria<GenericCollectionValidator<T>>(this);
         }
@@ -26,7 +26,7 @@ namespace SimpleValidation.Validators
         public AndCriteria<GenericCollectionValidator<T>> NotNull()
         {
             if(_target == null)
-                throw new ArgumentOutOfRangeException($"Input collection should not be null");
+                throw new ArgumentOutOfRangeException($"Input collection argument should not be null");
 
             return new AndCriteria<GenericCollectionValidator<T>>(this);
         }
@@ -44,7 +44,7 @@ namespace SimpleValidation.Validators
 
             if (_target.Count() <= minLengthValue)
                 throw new ArgumentOutOfRangeException(
-                    $"Input collection should be at least {minLengthValue} but found {_target.Count()}");
+                    $"Input collection argument should be at least {minLengthValue} but found {_target.Count()}");
 
             return new AndCriteria<GenericCollectionValidator<T>>(this);
         }
@@ -55,7 +55,7 @@ namespace SimpleValidation.Validators
 
             if (_target.Count() >= maxLengthValue)
                 throw new ArgumentOutOfRangeException(
-                    $"Input collection size should not exceed {maxLengthValue} but found {_target.Count()}");
+                    $"Input collection argument size should not exceed {maxLengthValue} but found {_target.Count()}");
 
             return new AndCriteria<GenericCollectionValidator<T>>(this);
         }
@@ -68,7 +68,7 @@ namespace SimpleValidation.Validators
 
             if (!(collectionSize >= minLengthValue && collectionSize <= maxLengthValue))
                 throw new ArgumentOutOfRangeException(
-                    $"Input collection size should be between {minLengthValue} and {maxLengthValue} but found {_target.Count()}");
+                    $"Input collection argument size should be between {minLengthValue} and {maxLengthValue} but found {_target.Count()}");
 
             return new AndCriteria<GenericCollectionValidator<T>>(this);
         }

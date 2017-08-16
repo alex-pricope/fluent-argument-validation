@@ -1,6 +1,6 @@
-﻿namespace SimpleValidation.Criterias
+﻿namespace FluentValidation.Criterias
 {
-    public class AndCriteria<T>
+    public sealed class AndCriteria<T>
     {
         public AndCriteria(T parent)
         {

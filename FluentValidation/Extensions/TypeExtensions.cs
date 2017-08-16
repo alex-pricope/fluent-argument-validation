@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Diagnostics.Contracts;
-using SimpleValidation.Validators;
+using FluentValidation.Validators;
 
-namespace SimpleValidation.Extensions
+namespace FluentValidation.Extensions
 {
+    [DebuggerNonUserCode]
     public static class TypeExtensions
     {
         //DATE_TIME
@@ -12,7 +14,7 @@ namespace SimpleValidation.Extensions
         {
             return new DateTimeValidator(inputDateTime);
         }
-        
+
         //STRING
         [Pure]
         public static StringValidator Check(this string inputValue)
