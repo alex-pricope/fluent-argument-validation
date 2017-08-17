@@ -14,16 +14,16 @@ namespace FluentValidation.Validators
             _target = inputValue;
         }
 
-        public AndCriteria<GenericCollectionValidator<T>> NotEmpty()
+        public AndCriteria<GenericCollectionValidator<T>> IsNotEmpty()
         {
-            NotNull();
+            IsNotNull();
             if (!_target.Any())
                 throw new ArgumentOutOfRangeException($"Input collection argument should not be empty");
 
             return new AndCriteria<GenericCollectionValidator<T>>(this);
         }
 
-        public AndCriteria<GenericCollectionValidator<T>> NotNull()
+        public AndCriteria<GenericCollectionValidator<T>> IsNotNull()
         {
             if(_target == null)
                 throw new ArgumentOutOfRangeException($"Input collection argument should not be null");
@@ -31,16 +31,16 @@ namespace FluentValidation.Validators
             return new AndCriteria<GenericCollectionValidator<T>>(this);
         }
 
-        public AndCriteria<GenericCollectionValidator<T>> NotNullOrEmpty()
+        public AndCriteria<GenericCollectionValidator<T>> IsNotNullOrEmpty()
         {
-            NotEmpty();
+            IsNotEmpty();
 
             return new AndCriteria<GenericCollectionValidator<T>>(this);
         }
 
         public AndCriteria<GenericCollectionValidator<T>> MinimumLength(int minLengthValue)
         {
-            NotEmpty();
+            IsNotEmpty();
 
             if (_target.Count() <= minLengthValue)
                 throw new ArgumentOutOfRangeException(
@@ -51,7 +51,7 @@ namespace FluentValidation.Validators
 
         public AndCriteria<GenericCollectionValidator<T>> MaximumLength(int maxLengthValue)
         {
-            NotEmpty();
+            IsNotEmpty();
 
             if (_target.Count() >= maxLengthValue)
                 throw new ArgumentOutOfRangeException(
@@ -62,7 +62,7 @@ namespace FluentValidation.Validators
 
         public AndCriteria<GenericCollectionValidator<T>> LengthBetween(int minLengthValue, int maxLengthValue)
         {
-            NotEmpty();
+            IsNotEmpty();
 
             var collectionSize = _target.Count();
 

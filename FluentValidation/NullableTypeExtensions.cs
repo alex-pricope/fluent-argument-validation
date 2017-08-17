@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using FluentValidation.Validators.Nullable;
 
-namespace FluentValidation.Extensions
+namespace FluentValidation
 {
     [DebuggerNonUserCode]
     public static class NullableTypeExtensions

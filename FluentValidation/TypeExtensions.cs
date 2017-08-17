@@ -4,11 +4,17 @@ using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using FluentValidation.Validators;
 
-namespace FluentValidation.Extensions
+namespace FluentValidation
 {
     [DebuggerNonUserCode]
     public static class TypeExtensions
     {
+        //OBJECT
+        public static ObjectValidator Check(this object inputObject)
+        {
+            return new ObjectValidator(inputObject);
+        }
+
         //DATE_TIME
         public static DateTimeValidator Check(this DateTime inputDateTime)
         {

@@ -17,7 +17,7 @@ namespace FluentValidation.Validators
         public AndCriteria<GenericDictionaryValidator<TKey, TValue>> KeysCountBetween(int minKeysCountValue,
             int maxKeysCountValue)
         {
-            NotEmpty();
+            IsNotEmpty();
 
             if (!(_target.Keys.Count >= minKeysCountValue && _target.Keys.Count <= maxKeysCountValue))
                 throw new ArgumentOutOfRangeException(
@@ -28,7 +28,7 @@ namespace FluentValidation.Validators
 
         public AndCriteria<GenericDictionaryValidator<TKey, TValue>> MaximumKeysCount(int maxKeysCountValue)
         {
-            NotEmpty();
+            IsNotEmpty();
 
             if (_target.Keys.Count >= maxKeysCountValue)
                 throw new ArgumentOutOfRangeException(
@@ -39,7 +39,7 @@ namespace FluentValidation.Validators
 
         public AndCriteria<GenericDictionaryValidator<TKey, TValue>> MinimumKeysCount(int minKeysCountValue)
         {
-            NotEmpty();
+            IsNotEmpty();
 
             if (_target.Keys.Count <= minKeysCountValue)
                 throw new ArgumentOutOfRangeException(
@@ -48,16 +48,16 @@ namespace FluentValidation.Validators
             return new AndCriteria<GenericDictionaryValidator<TKey, TValue>>(this);
         }
 
-        public AndCriteria<GenericDictionaryValidator<TKey, TValue>> NotEmpty()
+        public AndCriteria<GenericDictionaryValidator<TKey, TValue>> IsNotEmpty()
         {
-            NotNull();
+            IsNotNull();
             if (!_target.Any())
                 throw new ArgumentOutOfRangeException($"Input dictionary argument should not be empty");
 
             return new AndCriteria<GenericDictionaryValidator<TKey, TValue>>(this);
         }
 
-        public AndCriteria<GenericDictionaryValidator<TKey, TValue>> NotNull()
+        public AndCriteria<GenericDictionaryValidator<TKey, TValue>> IsNotNull()
         {
             if (_target == null)
                 throw new ArgumentOutOfRangeException($"Input dictionary argument should not be null");
@@ -65,9 +65,9 @@ namespace FluentValidation.Validators
             return new AndCriteria<GenericDictionaryValidator<TKey, TValue>>(this);
         }
 
-        public AndCriteria<GenericDictionaryValidator<TKey, TValue>> NotNullOrEmpty()
+        public AndCriteria<GenericDictionaryValidator<TKey, TValue>> IsNotNullOrEmpty()
         {
-            NotEmpty();
+            IsNotEmpty();
 
             return new AndCriteria<GenericDictionaryValidator<TKey, TValue>>(this);
         }
