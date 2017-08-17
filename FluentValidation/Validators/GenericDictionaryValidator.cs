@@ -60,7 +60,7 @@ namespace FluentValidation.Validators
         public AndCriteria<GenericDictionaryValidator<TKey, TValue>> IsNotNull()
         {
             if (_target == null)
-                throw new ArgumentOutOfRangeException($"Input dictionary argument should not be null");
+                throw new ArgumentNullException($"Input dictionary argument should not be null");
 
             return new AndCriteria<GenericDictionaryValidator<TKey, TValue>>(this);
         }

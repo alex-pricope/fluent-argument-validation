@@ -10,12 +10,14 @@ namespace FluentValidation
     public static class TypeExtensions
     {
         //OBJECT
+        [Pure]
         public static ObjectValidator Check(this object inputObject)
         {
             return new ObjectValidator(inputObject);
         }
 
         //DATE_TIME
+        [Pure]
         public static DateTimeValidator Check(this DateTime inputDateTime)
         {
             return new DateTimeValidator(inputDateTime);

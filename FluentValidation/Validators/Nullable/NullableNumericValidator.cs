@@ -23,7 +23,7 @@ namespace FluentValidation.Validators.Nullable
         public void IsNull()
         {
             if (_target.HasValue)
-                throw new ArgumentOutOfRangeException(
+                throw new ArgumentNullException(
                     $"Input nullable number argument should be null but found {_target.Value}");
         }
 

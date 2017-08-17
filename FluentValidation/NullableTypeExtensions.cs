@@ -9,6 +9,7 @@ namespace FluentValidation
     public static class NullableTypeExtensions
     {
         //DATE_TIME
+        [Pure]
         public static NullableDateTimeValidator Check(this DateTime? inputDateTime)
         {
             return new NullableDateTimeValidator(inputDateTime);

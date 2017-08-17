@@ -18,7 +18,7 @@ namespace FluentValidation.Validators
                 throw new ArgumentNullException($"Input string argument should empty but found {_target}");
         }
 
-        public AndCriteria<StringValidator> NotEmpty()
+        public AndCriteria<StringValidator> IsNotEmpty()
         {
             if(string.IsNullOrWhiteSpace(_target)|| string.IsNullOrEmpty(_target))
                 throw new ArgumentNullException($"Input string argument should not be empty");
@@ -28,7 +28,7 @@ namespace FluentValidation.Validators
 
         public AndCriteria<StringValidator> MinimumLength(int minLengthValue)
         {
-            NotEmpty();
+            IsNotEmpty();
 
             if(_target.Length < minLengthValue)
                 throw new ArgumentOutOfRangeException(
@@ -39,7 +39,7 @@ namespace FluentValidation.Validators
 
         public AndCriteria<StringValidator> MaximumLength(int maxLengthValue)
         {
-            NotEmpty();
+            IsNotEmpty();
 
             if (_target.Length > maxLengthValue)
                 throw new ArgumentOutOfRangeException(
@@ -50,7 +50,7 @@ namespace FluentValidation.Validators
 
         public AndCriteria<StringValidator> LengthBetween(int minLengthValue, int maxLengthValue)
         {
-            NotEmpty();
+            IsNotEmpty();
 
             if (!(_target.Length >= minLengthValue && _target.Length <= maxLengthValue))
                 throw new ArgumentOutOfRangeException(

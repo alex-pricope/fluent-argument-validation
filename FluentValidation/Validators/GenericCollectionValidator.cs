@@ -26,7 +26,7 @@ namespace FluentValidation.Validators
         public AndCriteria<GenericCollectionValidator<T>> IsNotNull()
         {
             if(_target == null)
-                throw new ArgumentOutOfRangeException($"Input collection argument should not be null");
+                throw new ArgumentNullException($"Input collection argument should not be null");
 
             return new AndCriteria<GenericCollectionValidator<T>>(this);
         }
@@ -65,7 +65,6 @@ namespace FluentValidation.Validators
             IsNotEmpty();
 
             var collectionSize = _target.Count();
-
             if (!(collectionSize >= minLengthValue && collectionSize <= maxLengthValue))
                 throw new ArgumentOutOfRangeException(
                     $"Input collection argument size should be between {minLengthValue} and {maxLengthValue} but found {_target.Count()}");
