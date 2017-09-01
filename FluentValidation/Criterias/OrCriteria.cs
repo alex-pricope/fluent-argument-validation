@@ -1,12 +1,15 @@
-﻿namespace FluentValidation.Criterias
+﻿namespace FluentValidation
 {
     public sealed class OrCriteria<T>
     {
-        public OrCriteria(T parent)
+        internal OrCriteria(T parent)
         {
             Or = parent;
         }
 
+        /// <summary>
+        /// Fluently continue a series of Or criteria
+        /// </summary>
         public T Or { get; }
     }
 }

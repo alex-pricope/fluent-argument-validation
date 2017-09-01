@@ -50,7 +50,8 @@
     <Compile Include="Validators\GenericCollectionValidator.cs" />
     <Compile Include="Validators\GenericDictionaryValidator.cs" />
     <Compile Include="Validators\Nullable\NullableDateTimeValidator.cs" />
-    <Compile Include="Validators\Nullable\NullableNumericValidator.cs" />
+    <Compile Include="Validators\Nullable\UnsignedNullableNumericValidator.cs" />
+    <Compile Include="Validators\Nullable\SignedNullableNumericValidator.cs" />
     <Compile Include="Validators\NumericValidator.cs" />
     <Compile Include="Validators\ObjectValidator.cs" />
     <Compile Include="Validators\StringValidator.cs" />

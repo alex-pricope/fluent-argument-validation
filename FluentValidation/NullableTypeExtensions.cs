@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Diagnostics.Contracts;
-using FluentValidation.Validators.Nullable;
+using FluentValidation.Validators;
 
 namespace FluentValidation
 {
+    /// <summary>
+    /// Nullable types extension methods
+    /// </summary>
     [DebuggerNonUserCode]
     public static class NullableTypeExtensions
     {
         //DATE_TIME
+        [Pure]
         public static NullableDateTimeValidator Check(this DateTime? inputDateTime)
         {
             return new NullableDateTimeValidator(inputDateTime);
@@ -16,69 +20,69 @@ namespace FluentValidation
 
         //NUMERIC
         [Pure]
-        public static NullableNumericValidator<int> Check(this int? inputValue)
+        public static SignedNullableNumericValidator<int> Check(this int? inputValue)
         {
-            return new NullableNumericValidator<int>(inputValue);
+            return new SignedNullableNumericValidator<int>(inputValue);
         }
 
         [Pure]
-        public static NullableNumericValidator<uint> Check(this uint? inputValue)
+        public static UnsignedNullableNumericValidator<uint> Check(this uint? inputValue)
         {
-            return new NullableNumericValidator<uint>(inputValue);
+            return new UnsignedNullableNumericValidator<uint>(inputValue);
         }
 
         [Pure]
-        public static NullableNumericValidator<long> Check(this long? inputValue)
+        public static SignedNullableNumericValidator<long> Check(this long? inputValue)
         {
-            return new NullableNumericValidator<long>(inputValue);
+            return new SignedNullableNumericValidator<long>(inputValue);
         }
 
         [Pure]
-        public static NullableNumericValidator<ulong> Check(this ulong? inputValue)
+        public static UnsignedNullableNumericValidator<ulong> Check(this ulong? inputValue)
         {
-            return new NullableNumericValidator<ulong>(inputValue);
+            return new UnsignedNullableNumericValidator<ulong>(inputValue);
         }
 
         [Pure]
-        public static NullableNumericValidator<decimal> Check(this decimal? inputValue)
+        public static SignedNullableNumericValidator<decimal> Check(this decimal? inputValue)
         {
-            return new NullableNumericValidator<decimal>(inputValue);
+            return new SignedNullableNumericValidator<decimal>(inputValue);
         }
 
         [Pure]
-        public static NullableNumericValidator<float> Check(this float? inputValue)
+        public static SignedNullableNumericValidator<float> Check(this float? inputValue)
         {
-            return new NullableNumericValidator<float>(inputValue);
+            return new SignedNullableNumericValidator<float>(inputValue);
         }
 
         [Pure]
-        public static NullableNumericValidator<short> Check(this short? inputValue)
+        public static SignedNullableNumericValidator<short> Check(this short? inputValue)
         {
-            return new NullableNumericValidator<short>(inputValue);
+            return new SignedNullableNumericValidator<short>(inputValue);
         }
 
         [Pure]
-        public static NullableNumericValidator<ushort> Check(this ushort? inputValue)
+        public static UnsignedNullableNumericValidator<ushort> Check(this ushort? inputValue)
         {
-            return new NullableNumericValidator<ushort>(inputValue);
+            return new UnsignedNullableNumericValidator<ushort>(inputValue);
         }
 
         [Pure]
-        public static NullableNumericValidator<byte> Check(this byte? inputValue)
+        public static UnsignedNullableNumericValidator<byte> Check(this byte? inputValue)
         {
-            return new NullableNumericValidator<byte>(inputValue);
+            return new UnsignedNullableNumericValidator<byte>(inputValue);
         }
 
         [Pure]
-        public static NullableNumericValidator<sbyte> Check(this sbyte? inputValue)
+        public static SignedNullableNumericValidator<sbyte> Check(this sbyte? inputValue)
         {
-            return new NullableNumericValidator<sbyte>(inputValue);
+            return new SignedNullableNumericValidator<sbyte>(inputValue);
         }
 
         [Pure]
-        public static NullableNumericValidator<double> Check(this double? inputValue)
+        public static SignedNullableNumericValidator<double> Check(this double? inputValue)
         {
-            return new NullableNumericValidator<double>(inputValue);
+            return new SignedNullableNumericValidator<double>(inputValue);
         }
     }
 }

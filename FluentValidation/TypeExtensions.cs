@@ -6,6 +6,9 @@ using FluentValidation.Validators;
 
 namespace FluentValidation
 {
+    /// <summary>
+    /// Extension methods
+    /// </summary>
     [DebuggerNonUserCode]
     public static class TypeExtensions
     {

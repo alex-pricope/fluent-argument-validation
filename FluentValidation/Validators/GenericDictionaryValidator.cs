@@ -1,19 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using FluentValidation.Criterias;
 
 namespace FluentValidation.Validators
 {
+    /// <summary>
+    /// Validation class for a generic dictionary
+    /// </summary>
+    /// <typeparam name="TKey">The TKey type</typeparam>
+    /// <typeparam name="TValue">The TValue type </typeparam>
     public sealed class GenericDictionaryValidator<TKey,TValue>
     {
         private readonly IDictionary<TKey, TValue> _target;
 
-        public GenericDictionaryValidator(IDictionary<TKey, TValue> inputCollection)
+        internal GenericDictionaryValidator(IDictionary<TKey, TValue> inputCollection)
         {
             _target = inputCollection;
         }
 
+        /// <summary>
+        /// Check if the dictionary has a key count between an input min and max keys count
+        /// </summary>
+        /// <param name="minKeysCountValue">The input min keys count</param>
+        /// <param name="maxKeysCountValue">The input max keys count</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        /// <returns></returns>
         public AndCriteria<GenericDictionaryValidator<TKey, TValue>> KeysCountBetween(int minKeysCountValue,
             int maxKeysCountValue)
         {
@@ -26,6 +37,12 @@ namespace FluentValidation.Validators
             return new AndCriteria<GenericDictionaryValidator<TKey, TValue>>(this);
         }
 
+        /// <summary>
+        /// Check if the dictionary has a key count less then an input max keys count
+        /// </summary>
+        /// <param name="maxKeysCountValue">The input max keys count</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        /// <returns></returns>
         public AndCriteria<GenericDictionaryValidator<TKey, TValue>> MaximumKeysCount(int maxKeysCountValue)
         {
             IsNotEmpty();
@@ -37,6 +54,12 @@ namespace FluentValidation.Validators
             return new AndCriteria<GenericDictionaryValidator<TKey, TValue>>(this);
         }
 
+        /// <summary>
+        /// Check if the dictionary has a key count greater then an input min keys count
+        /// </summary>
+        /// <param name="minKeysCountValue">The input min keys count</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        /// <returns></returns>
         public AndCriteria<GenericDictionaryValidator<TKey, TValue>> MinimumKeysCount(int minKeysCountValue)
         {
             IsNotEmpty();
@@ -48,6 +71,11 @@ namespace FluentValidation.Validators
             return new AndCriteria<GenericDictionaryValidator<TKey, TValue>>(this);
         }
 
+        /// <summary>
+        /// Check if the dictionary is not empty
+        /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        /// <returns></returns>
         public AndCriteria<GenericDictionaryValidator<TKey, TValue>> IsNotEmpty()
         {
             IsNotNull();
@@ -57,15 +85,37 @@ namespace FluentValidation.Validators
             return new AndCriteria<GenericDictionaryValidator<TKey, TValue>>(this);
         }
 
+        /// <summary>
+        /// Check if the dictionary is not null
+        /// </summary>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
         public AndCriteria<GenericDictionaryValidator<TKey, TValue>> IsNotNull()
         {
             if (_target == null)
-                throw new ArgumentOutOfRangeException($"Input dictionary argument should not be null");
+                throw new ArgumentNullException($"Input dictionary argument should not be null");
 
             return new AndCriteria<GenericDictionaryValidator<TKey, TValue>>(this);
         }
 
+        /// <summary>
+        /// Check if the dictionary is not null and not empty
+        /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        /// <returns></returns>
         public AndCriteria<GenericDictionaryValidator<TKey, TValue>> IsNotNullOrEmpty()
+        {
+            IsNotEmpty();
+
+            return new AndCriteria<GenericDictionaryValidator<TKey, TValue>>(this);
+        }
+
+        /// <summary>
+        /// Check if the dictionary is not null and not empty (has values). The same as IsNotNullOrEmpty
+        /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        /// <returns></returns>
+        public AndCriteria<GenericDictionaryValidator<TKey, TValue>> HasValue()
         {
             IsNotEmpty();
 

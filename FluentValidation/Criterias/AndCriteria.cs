@@ -1,12 +1,15 @@
-﻿namespace FluentValidation.Criterias
+﻿namespace FluentValidation
 {
     public sealed class AndCriteria<T>
     {
-        public AndCriteria(T parent)
+        internal AndCriteria(T parent)
         {
             And = parent;
         }
 
+        /// <summary>
+        /// Fluently continue a series of And criteria
+        /// </summary>
         public T And { get; }
     }
 }

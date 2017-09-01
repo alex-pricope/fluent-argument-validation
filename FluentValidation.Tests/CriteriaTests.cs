@@ -1,5 +1,4 @@
 ﻿using FluentAssertions;
-using FluentValidation.Criterias;
 using NUnit.Framework;
 
 namespace FluentValidation.Tests

@@ -1,17 +1,24 @@
 ﻿using System;
-using FluentValidation.Criterias;
 
 namespace FluentValidation.Validators
 {
+    /// <summary>
+    /// Validation class for a generic object
+    /// </summary>
     public sealed class ObjectValidator
     {
         private readonly object _target;
 
-        public ObjectValidator(object inputObject)
+        internal ObjectValidator(object inputObject)
         {
             _target = inputObject;
         }
 
+        /// <summary>
+        /// Check if the object is not null
+        /// </summary>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
         public AndCriteria<ObjectValidator> IsNotNull()
         {
             if (_target == null)
@@ -20,6 +27,13 @@ namespace FluentValidation.Validators
             return new AndCriteria<ObjectValidator>(this);
         }
 
+        /// <summary>
+        /// Check if the object is of type T
+        /// </summary>
+        /// <typeparam name="T">The expected type</typeparam>
+        /// <param name="ofType">The expected type</param>
+        /// <exception cref="ArgumentException"></exception>
+        /// <returns></returns>
         public AndCriteria<ObjectValidator> IsOfType<T>(T ofType)
         {
             if (_target.GetType() != typeof(T))
@@ -29,6 +43,11 @@ namespace FluentValidation.Validators
             return new AndCriteria<ObjectValidator>(this);
         }
 
+        /// <summary>
+        /// Check if the object is a reference type (not value type)
+        /// </summary>
+        /// <exception cref="ArgumentException"></exception>
+        /// <returns></returns>
         public AndCriteria<ObjectValidator> IsReferenceType()
         {
             if (_target.GetType().IsValueType)
@@ -37,6 +56,12 @@ namespace FluentValidation.Validators
 
             return new AndCriteria<ObjectValidator>(this);
         }
+
+        /// <summary>
+        /// Check if the object is a value type (not reference type)
+        /// </summary>
+        /// <exception cref="ArgumentException"></exception>
+        /// <returns></returns>
         public AndCriteria<ObjectValidator> IsValueType()
         {
             if (!_target.GetType().IsValueType)

@@ -50,7 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CriteriaTests.cs" />
+    <Compile Include="Validators\NullableDateTimeValidationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validators\NullableNumeric\Factory\SignedNullableNumericFactory.cs" />
+    <Compile Include="Validators\NullableNumeric\SignedNullableValidatorTests.cs" />
+    <Compile Include="Validators\NullableNumeric\Factory\UnsignedNullableNumericFactory.cs" />
+    <Compile Include="Validators\NullableNumeric\UnsignedNullableValidatorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FluentValidation\FluentValidation.csproj">
