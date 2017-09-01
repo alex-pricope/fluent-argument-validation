@@ -14,14 +14,21 @@ namespace FluentValidation.Validators
             _target = inputValue;
         }
 
-        /// <summary>
+        //TODO: This is from a merge conflicyt
+        public void IsEmpty()
+        {
+            if (!string.IsNullOrWhiteSpace(_target) || !string.IsNullOrEmpty(_target))
+                throw new ArgumentNullException($"Input string argument should empty but found {_target}");
+        }
+
+         /// <summary>
         /// Check if the string is not empty
         /// </summary>
         /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
-        public AndCriteria<StringValidator> NotEmpty()
+        public AndCriteria<StringValidator> IsNotEmpty()
         {
-            if(string.IsNullOrWhiteSpace(_target)|| string.IsNullOrEmpty(_target))
+            if (string.IsNullOrWhiteSpace(_target)|| string.IsNullOrEmpty(_target))
                 throw new ArgumentNullException($"Input string argument should not be empty");
 
             return new AndCriteria<StringValidator>(this);
@@ -35,7 +42,7 @@ namespace FluentValidation.Validators
         /// <returns></returns>
         public AndCriteria<StringValidator> MinimumLength(int minLengthValue)
         {
-            NotEmpty();
+            IsNotEmpty();
 
             if(_target.Length < minLengthValue)
                 throw new ArgumentOutOfRangeException(
@@ -52,7 +59,7 @@ namespace FluentValidation.Validators
         /// <returns></returns>
         public AndCriteria<StringValidator> MaximumLength(int maxLengthValue)
         {
-            NotEmpty();
+            IsNotEmpty();
 
             if (_target.Length > maxLengthValue)
                 throw new ArgumentOutOfRangeException(
@@ -70,7 +77,7 @@ namespace FluentValidation.Validators
         /// <returns></returns>
         public AndCriteria<StringValidator> LengthBetween(int minLengthValue, int maxLengthValue)
         {
-            NotEmpty();
+            IsNotEmpty();
 
             if (!(_target.Length >= minLengthValue && _target.Length <= maxLengthValue))
                 throw new ArgumentOutOfRangeException(

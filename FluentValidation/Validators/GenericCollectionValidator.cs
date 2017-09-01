@@ -114,7 +114,6 @@ namespace FluentValidation.Validators
             IsNotEmpty();
 
             var collectionSize = _target.Count();
-
             if (!(collectionSize >= minLengthValue && collectionSize <= maxLengthValue))
                 throw new ArgumentOutOfRangeException(
                     $"Input collection argument size should be between {minLengthValue} and {maxLengthValue} but found {_target.Count()}");
