@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Pixelfusion.Validation")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("FluentArgumentValidation")]
+[assembly: AssemblyDescription("Provides a simple and fluent way to do argument validation")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Pixelfusion.Validation")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyProduct("")]
+[assembly: AssemblyCopyright("Copyright © XXX 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

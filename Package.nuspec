@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Fluent.Argument.Validation</id>
+    <version>0.9</version>
+    <authors>Alex Pricope</authors>
+    <owners>alex.pricope</owners>
+    <licenseUrl>https://github.com/alex-pricope/fluent-argument-validation/wiki/Fluent-Validation-WIKI</licenseUrl>
+    <projectUrl>https://github.com/alex-pricope/fluent-argument-validation</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Fluent utility helper for argument validation</description>
+    <releaseNotes>Initial release</releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <tags>testing argument validation type check helper fluent utility</tags>
+   </metadata>
+<files>
+   <file src="FluentValidation\bin\Release\FluentValidation.dll" target="lib\net45"></file>
+</files>
+</package>
