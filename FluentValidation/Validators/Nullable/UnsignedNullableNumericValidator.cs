@@ -23,7 +23,7 @@ namespace FluentValidation.Validators
         public AndCriteria<UnsignedNullableNumericValidator<T>> HasValue()
         {
             if (!_target.HasValue)
-                throw new ArgumentOutOfRangeException($"Input nullable number argument should have a value but found null");
+                throw new ArgumentOutOfRangeException(nameof(_target), $"Input nullable number argument should have a value but found null");
 
             return new AndCriteria<UnsignedNullableNumericValidator<T>>(this);
         }
@@ -40,7 +40,7 @@ namespace FluentValidation.Validators
 
             if (_target.Value.CompareTo(maxValue) > 0)
                 throw new ArgumentOutOfRangeException(
-                    $"Input nullable number argument should not be less then {maxValue} but found {_target}");
+                    nameof(_target), $"Input nullable number argument should not be less then {maxValue} but found {_target}");
 
             return new AndCriteria<UnsignedNullableNumericValidator<T>>(this);
         }
@@ -57,7 +57,7 @@ namespace FluentValidation.Validators
 
             if (_target.Value.CompareTo(minValue) < 0)
                 throw new ArgumentOutOfRangeException(
-                    $"Input nullable number argument should be greater then {minValue} but found {_target}");
+                    nameof(_target), $"Input nullable number argument should be greater then {minValue} but found {_target}");
 
             return new AndCriteria<UnsignedNullableNumericValidator<T>>(this);
         }
@@ -75,7 +75,7 @@ namespace FluentValidation.Validators
 
             if (!(_target.Value.CompareTo(minValue) > 0 && _target.Value.CompareTo(maxValue) < 0))
                 throw new ArgumentOutOfRangeException(
-                    $"Input nullable number argument should be between {minValue} and {maxValue} but found {_target}");
+                    nameof(_target), $"Input nullable number argument should be between {minValue} and {maxValue} but found {_target}");
 
             return new AndCriteria<UnsignedNullableNumericValidator<T>>(this);
         }

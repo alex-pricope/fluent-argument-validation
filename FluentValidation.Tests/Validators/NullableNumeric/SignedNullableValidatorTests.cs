@@ -1018,7 +1018,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
                 () =>
                 {
                     var numericValue = SignedNullableNumericFactory.CreateIntWithNegativeValue();
-                    var minNumericValue = numericValue.Value; //- 1;
+                    var minNumericValue = numericValue.Value - 1;
                     var maxNumericValue = numericValue.Value + 10;
 
                     numericValue

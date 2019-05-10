@@ -22,7 +22,7 @@ namespace FluentValidation.Validators
         public AndCriteria<NullableDateTimeValidator> HasValue()
         {
             if (!_target.HasValue)
-                throw new ArgumentOutOfRangeException($"Input nullable DateTime argument should have a value but found null");
+                throw new ArgumentOutOfRangeException(nameof(_target), $"Input nullable DateTime argument should have a value but found null");
 
             return new AndCriteria<NullableDateTimeValidator>(this);
         }
@@ -35,7 +35,7 @@ namespace FluentValidation.Validators
         {
             if (_target.HasValue)
                 throw new ArgumentOutOfRangeException(
-                    $"Input nullable DateTime argument should be null but found {_target.Value}");
+                    nameof(_target), $"Input nullable DateTime argument should be null but found {_target.Value}");
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace FluentValidation.Validators
             HasValue();
 
             if (_target == DateTime.MinValue || _target == DateTime.MaxValue || _target == default(DateTime))
-                throw new ArgumentOutOfRangeException($"Input nullable DateTime argument should have a valid DateTime value but found {_target}");
+                throw new ArgumentOutOfRangeException(nameof(_target), $"Input nullable DateTime argument should have a valid DateTime value but found {_target}");
 
             return new AndCriteria<NullableDateTimeValidator>(this);
         }

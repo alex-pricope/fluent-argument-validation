@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Fluent.Argument.Validation</id>
-    <version>0.9</version>
+    <version>0.9.1</version>
     <authors>Alex Pricope</authors>
     <owners>alex.pricope</owners>
     <licenseUrl>https://github.com/alex-pricope/fluent-argument-validation/wiki/Fluent-Validation-WIKI</licenseUrl>

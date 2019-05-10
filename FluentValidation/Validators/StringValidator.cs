@@ -14,11 +14,11 @@ namespace FluentValidation.Validators
             _target = inputValue;
         }
 
-        //TODO: This is from a merge conflicyt
+        //TODO: This is from a merge conflict
         public void IsEmpty()
         {
             if (!string.IsNullOrWhiteSpace(_target) || !string.IsNullOrEmpty(_target))
-                throw new ArgumentNullException($"Input string argument should empty but found {_target}");
+                throw new ArgumentNullException(nameof(_target),$"Input string argument should empty but found {_target}");
         }
 
          /// <summary>
@@ -29,7 +29,7 @@ namespace FluentValidation.Validators
         public AndCriteria<StringValidator> IsNotEmpty()
         {
             if (string.IsNullOrWhiteSpace(_target)|| string.IsNullOrEmpty(_target))
-                throw new ArgumentNullException($"Input string argument should not be empty");
+                throw new ArgumentNullException(nameof(_target), $"Input string argument should not be empty");
 
             return new AndCriteria<StringValidator>(this);
         }
@@ -45,7 +45,7 @@ namespace FluentValidation.Validators
             IsNotEmpty();
 
             if(_target.Length < minLengthValue)
-                throw new ArgumentOutOfRangeException(
+                throw new ArgumentOutOfRangeException(nameof(_target),
                     $"Input string argument should be at least {minLengthValue} length but found {_target.Length}");
 
             return new AndCriteria<StringValidator>(this);
@@ -62,7 +62,7 @@ namespace FluentValidation.Validators
             IsNotEmpty();
 
             if (_target.Length > maxLengthValue)
-                throw new ArgumentOutOfRangeException(
+                throw new ArgumentOutOfRangeException(nameof(_target),
                     $"Input string argument should be a maximum length of {maxLengthValue} but found {_target.Length}");
 
             return new AndCriteria<StringValidator>(this);
@@ -80,7 +80,7 @@ namespace FluentValidation.Validators
             IsNotEmpty();
 
             if (!(_target.Length >= minLengthValue && _target.Length <= maxLengthValue))
-                throw new ArgumentOutOfRangeException(
+                throw new ArgumentOutOfRangeException(nameof(_target),
                     $"Input string argument length should be between {minLengthValue} and {maxLengthValue} but found {_target.Length}");
 
             return new AndCriteria<StringValidator>(this);

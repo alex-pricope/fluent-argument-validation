@@ -22,7 +22,7 @@ namespace FluentValidation.Validators
         public AndCriteria<DateTimeValidator> IsValid()
         {
             if (_target == DateTime.MinValue || _target == DateTime.MaxValue || _target == default(DateTime))
-                throw new ArgumentOutOfRangeException($"Input DateTime argument should be valid but found {_target}");
+                throw new ArgumentOutOfRangeException(nameof(_target), $"Input DateTime argument should be valid but found {_target}");
 
             return new AndCriteria<DateTimeValidator>(this);
         }
@@ -39,7 +39,7 @@ namespace FluentValidation.Validators
 
             if (_target < minValue)
                 throw new ArgumentOutOfRangeException(
-                    $"Input DateTime argument should be greater then {minValue} but found {_target}");
+                    nameof(_target), $"Input DateTime argument should be greater then {minValue} but found {_target}");
 
             return new AndCriteria<DateTimeValidator>(this);
         }
@@ -56,7 +56,7 @@ namespace FluentValidation.Validators
 
             if (_target > maxValue)
                 throw new ArgumentOutOfRangeException(
-                    $"Input DateTime argument should be less then {maxValue} but found {_target}");
+                    nameof(_target), $"Input DateTime argument should be less then {maxValue} but found {_target}");
 
             return new AndCriteria<DateTimeValidator>(this);
         }
@@ -74,7 +74,7 @@ namespace FluentValidation.Validators
 
             if (!(_target >= minValue && _target <= maxValue))
                 throw new ArgumentOutOfRangeException(
-                    $"Input DateTime argument should be between {minValue} and {maxValue} but found {_target}");
+                    nameof(_target), $"Input DateTime argument should be between {minValue} and {maxValue} but found {_target}");
 
             return new AndCriteria<DateTimeValidator>(this);
         }

@@ -22,7 +22,7 @@ namespace FluentValidation.Validators
         public AndCriteria<ObjectValidator> IsNotNull()
         {
             if (_target == null)
-                throw new ArgumentNullException($"Input object argument should be not null but found null");
+                throw new ArgumentNullException(nameof(_target), $"Input object argument should be not null but found null");
 
             return new AndCriteria<ObjectValidator>(this);
         }
