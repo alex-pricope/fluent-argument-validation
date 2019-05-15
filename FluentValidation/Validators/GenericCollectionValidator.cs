@@ -11,10 +11,13 @@ namespace FluentValidation.Validators
     public sealed class GenericCollectionValidator<T>
     {
         private readonly IEnumerable<T> _target;
+        private readonly string _parameterName = "INPUT_COLLECTION";
 
-        internal GenericCollectionValidator(IEnumerable<T> inputValue)
+        internal GenericCollectionValidator(IEnumerable<T> inputValue, string parameterName = "")
         {
             _target = inputValue;
+            if (!string.IsNullOrEmpty(parameterName))
+                _parameterName = parameterName;
         }
 
         /// <summary>
@@ -26,7 +29,7 @@ namespace FluentValidation.Validators
         {
             IsNotNull();
             if (!_target.Any())
-                throw new ArgumentOutOfRangeException(nameof(_target), $"Input collection argument should not be empty");
+                throw new ArgumentOutOfRangeException(_parameterName, $"Input collection argument should not be empty");
 
             return new AndCriteria<GenericCollectionValidator<T>>(this);
         }
@@ -39,7 +42,7 @@ namespace FluentValidation.Validators
         public AndCriteria<GenericCollectionValidator<T>> IsNotNull()
         {
             if(_target == null)
-                throw new ArgumentNullException(nameof(_target), $"Input collection argument should not be null");
+                throw new ArgumentNullException(_parameterName, $"Input collection argument should not be null");
 
             return new AndCriteria<GenericCollectionValidator<T>>(this);
         }
@@ -79,7 +82,7 @@ namespace FluentValidation.Validators
             IsNotEmpty();
 
             if (_target.Count() <= minLengthValue)
-                throw new ArgumentOutOfRangeException(nameof(_target),
+                throw new ArgumentOutOfRangeException(_parameterName,
                     $"Input collection argument should be at least {minLengthValue} but found {_target.Count()}");
 
             return new AndCriteria<GenericCollectionValidator<T>>(this);
@@ -96,7 +99,7 @@ namespace FluentValidation.Validators
             IsNotEmpty();
 
             if (_target.Count() >= maxLengthValue)
-                throw new ArgumentOutOfRangeException(nameof(_target),
+                throw new ArgumentOutOfRangeException(_parameterName,
                     $"Input collection argument size should not exceed {maxLengthValue} but found {_target.Count()}");
 
             return new AndCriteria<GenericCollectionValidator<T>>(this);
@@ -115,7 +118,7 @@ namespace FluentValidation.Validators
 
             var collectionSize = _target.Count();
             if (!(collectionSize >= minLengthValue && collectionSize <= maxLengthValue))
-                throw new ArgumentOutOfRangeException(nameof(_target),
+                throw new ArgumentOutOfRangeException(_parameterName,
                     $"Input collection argument size should be between {minLengthValue} and {maxLengthValue} but found {_target.Count()}");
 
             return new AndCriteria<GenericCollectionValidator<T>>(this);

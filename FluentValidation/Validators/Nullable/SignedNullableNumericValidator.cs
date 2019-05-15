@@ -9,10 +9,13 @@ namespace FluentValidation.Validators
     public sealed class SignedNullableNumericValidator<T> where T : struct ,IComparable
     {
         private readonly T? _target;
+        private readonly string _parameterName = "INPUT_SIGNED_NUMERIC";
 
-        internal SignedNullableNumericValidator(T? inputValue)
+        internal SignedNullableNumericValidator(T? inputValue, string parameterName = "")
         {
             _target = inputValue;
+            if (!string.IsNullOrEmpty(parameterName))
+                _parameterName = parameterName;
         }
 
         /// <summary>
@@ -23,7 +26,7 @@ namespace FluentValidation.Validators
         public AndCriteria<SignedNullableNumericValidator<T>> HasValue()
         {
             if (!_target.HasValue)
-                throw new ArgumentOutOfRangeException(nameof(_target), $"Input nullable number argument should have a value but found null");
+                throw new ArgumentOutOfRangeException(_parameterName, $"Input nullable number argument should have a value but found null");
 
             return new AndCriteria<SignedNullableNumericValidator<T>>(this);
         }
@@ -37,7 +40,7 @@ namespace FluentValidation.Validators
         {
             if (_target.HasValue)
                 throw new ArgumentOutOfRangeException(
-                    nameof(_target), $"Input nullable number argument should be null but found {_target.Value}");
+                    _parameterName, $"Input nullable number argument should be null but found {_target.Value}");
         }
 
         /// <summary>
@@ -51,7 +54,7 @@ namespace FluentValidation.Validators
 
             if (_target.Value.CompareTo(default(T)) < 0)
                 throw new ArgumentOutOfRangeException(
-                    nameof(_target), $"Input nullable number argument should be positive but found {_target}");
+                    _parameterName, $"Input nullable number argument should be positive but found {_target}");
 
             return new AndCriteria<SignedNullableNumericValidator<T>>(this);
         }
@@ -67,7 +70,7 @@ namespace FluentValidation.Validators
 
             if (_target.Value.CompareTo(default(T)) > 0)
                 throw new ArgumentOutOfRangeException(
-                    nameof(_target), $"Input nullable number argument should be negative but found {_target}");
+                    _parameterName, $"Input nullable number argument should be negative but found {_target}");
 
             return new AndCriteria<SignedNullableNumericValidator<T>>(this);
         }
@@ -84,7 +87,7 @@ namespace FluentValidation.Validators
 
             if (_target.Value.CompareTo(maxValue) > 0)
                 throw new ArgumentOutOfRangeException(
-                    nameof(_target), $"Input nullable number argument should not be less then {maxValue} but found {_target}");
+                    _parameterName, $"Input nullable number argument should not be less then {maxValue} but found {_target}");
 
             return new AndCriteria<SignedNullableNumericValidator<T>>(this);
         }
@@ -101,7 +104,7 @@ namespace FluentValidation.Validators
 
             if (_target.Value.CompareTo(minValue) < 0)
                 throw new ArgumentOutOfRangeException(
-                    nameof(_target), $"Input nullable number argument should be greater then {minValue} but found {_target}");
+                    _parameterName, $"Input nullable number argument should be greater then {minValue} but found {_target}");
 
             return new AndCriteria<SignedNullableNumericValidator<T>>(this);
         }
@@ -119,7 +122,7 @@ namespace FluentValidation.Validators
 
             if (!(_target.Value.CompareTo(minValue) > 0 && _target.Value.CompareTo(maxValue) < 0))
                 throw new ArgumentOutOfRangeException(
-                    nameof(_target), $"Input nullable number argument should be between {minValue} and {maxValue} but found {_target}");
+                    _parameterName, $"Input nullable number argument should be between {minValue} and {maxValue} but found {_target}");
 
             return new AndCriteria<SignedNullableNumericValidator<T>>(this);
         }

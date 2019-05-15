@@ -12,10 +12,13 @@ namespace FluentValidation.Validators
     public sealed class GenericDictionaryValidator<TKey,TValue>
     {
         private readonly IDictionary<TKey, TValue> _target;
+        private readonly string _parameterName = "INPUT_DICTIONARY";
 
-        internal GenericDictionaryValidator(IDictionary<TKey, TValue> inputCollection)
+        internal GenericDictionaryValidator(IDictionary<TKey, TValue> inputCollection, string parameterName)
         {
             _target = inputCollection;
+            if (!string.IsNullOrEmpty(parameterName))
+                _parameterName = parameterName;
         }
 
         /// <summary>
@@ -31,7 +34,7 @@ namespace FluentValidation.Validators
             IsNotEmpty();
 
             if (!(_target.Keys.Count >= minKeysCountValue && _target.Keys.Count <= maxKeysCountValue))
-                throw new ArgumentOutOfRangeException(nameof(_target),
+                throw new ArgumentOutOfRangeException(_parameterName,
                     $"Input dictionary argument keys count should be between {minKeysCountValue} and {maxKeysCountValue} but found {_target.Keys.Count}");
 
             return new AndCriteria<GenericDictionaryValidator<TKey, TValue>>(this);
@@ -48,7 +51,7 @@ namespace FluentValidation.Validators
             IsNotEmpty();
 
             if (_target.Keys.Count >= maxKeysCountValue)
-                throw new ArgumentOutOfRangeException(nameof(_target),
+                throw new ArgumentOutOfRangeException(_parameterName,
                     $"Input dictionary argument keys count should not exceed {maxKeysCountValue} but found {_target.Keys.Count}");
 
             return new AndCriteria<GenericDictionaryValidator<TKey, TValue>>(this);
@@ -65,7 +68,7 @@ namespace FluentValidation.Validators
             IsNotEmpty();
 
             if (_target.Keys.Count <= minKeysCountValue)
-                throw new ArgumentOutOfRangeException(nameof(_target),
+                throw new ArgumentOutOfRangeException(_parameterName,
                     $"Input dictionary argument keys count should be at least {minKeysCountValue} but found {_target.Keys.Count}");
 
             return new AndCriteria<GenericDictionaryValidator<TKey, TValue>>(this);
@@ -80,7 +83,7 @@ namespace FluentValidation.Validators
         {
             IsNotNull();
             if (!_target.Any())
-                throw new ArgumentOutOfRangeException(nameof(_target), $"Input dictionary argument should not be empty");
+                throw new ArgumentOutOfRangeException(_parameterName, $"Input dictionary argument should not be empty");
 
             return new AndCriteria<GenericDictionaryValidator<TKey, TValue>>(this);
         }
@@ -93,7 +96,7 @@ namespace FluentValidation.Validators
         public AndCriteria<GenericDictionaryValidator<TKey, TValue>> IsNotNull()
         {
             if (_target == null)
-                throw new ArgumentNullException(nameof(_target), $"Input dictionary argument should not be null");
+                throw new ArgumentNullException(_parameterName, $"Input dictionary argument should not be null");
 
             return new AndCriteria<GenericDictionaryValidator<TKey, TValue>>(this);
         }

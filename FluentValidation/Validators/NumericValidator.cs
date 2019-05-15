@@ -9,10 +9,13 @@ namespace FluentValidation.Validators
     public sealed class NumericValidator<T> where T : struct, IComparable
     {
         private readonly IComparable<T> _target;
+        private readonly string _parameterName = "INPUT_NUMERIC";
 
-        internal NumericValidator(T inputValue)
+        internal NumericValidator(T inputValue, string parameterName = "")
         {
             _target = (IComparable<T>) inputValue;
+            if (!string.IsNullOrEmpty(parameterName))
+                _parameterName = parameterName;
         }
 
         /// <summary>
@@ -23,7 +26,7 @@ namespace FluentValidation.Validators
         public AndCriteria<NumericValidator<T>> IsPositive()
         {
             if (_target.CompareTo(default(T)) < 0)
-                throw new ArgumentOutOfRangeException(nameof(_target),
+                throw new ArgumentOutOfRangeException(_parameterName,
                     $"Input number argument should be positive but found {_target}");
 
             return new AndCriteria<NumericValidator<T>>(this);
@@ -37,7 +40,7 @@ namespace FluentValidation.Validators
         public AndCriteria<NumericValidator<T>> IsNegative()
         {
             if (_target.CompareTo(default(T)) > 0)
-                throw new ArgumentOutOfRangeException(nameof(_target),
+                throw new ArgumentOutOfRangeException(_parameterName,
                     $"Input number argument should be negative but found {_target}");
 
             return new AndCriteria<NumericValidator<T>>(this);
@@ -52,7 +55,7 @@ namespace FluentValidation.Validators
         public AndCriteria<NumericValidator<T>> IsLessThen(T maxValue)
         {
             if (_target.CompareTo(maxValue) > 0)
-                throw new ArgumentOutOfRangeException(nameof(_target),
+                throw new ArgumentOutOfRangeException(_parameterName,
                     $"Input number argument should not be less then {maxValue} but found {_target}");
 
             return new AndCriteria<NumericValidator<T>>(this);
@@ -67,7 +70,7 @@ namespace FluentValidation.Validators
         public AndCriteria<NumericValidator<T>> IsGreaterThen(T minValue)
         {
             if (_target.CompareTo(minValue) < 0)
-                throw new ArgumentOutOfRangeException(nameof(_target),
+                throw new ArgumentOutOfRangeException(_parameterName,
                     $"Input number argument should be greater then {minValue} but found {_target}");
 
             return new AndCriteria<NumericValidator<T>>(this);
@@ -83,7 +86,7 @@ namespace FluentValidation.Validators
         public AndCriteria<NumericValidator<T>> IsBetween(T minValue, T maxValue)
         {
             if (!(_target.CompareTo(minValue) > 0 && _target.CompareTo(maxValue) < 0))
-                throw new ArgumentOutOfRangeException(nameof(_target),
+                throw new ArgumentOutOfRangeException(_parameterName,
                     $"Input number argument should be between {minValue} and {maxValue} but found {_target}");
 
             return new AndCriteria<NumericValidator<T>>(this);

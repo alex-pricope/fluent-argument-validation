@@ -8,10 +8,13 @@ namespace FluentValidation.Validators
     public sealed class ObjectValidator
     {
         private readonly object _target;
+        private readonly string _parameterName = "INPUT_OBJECT";
 
-        internal ObjectValidator(object inputObject)
+        internal ObjectValidator(object inputObject, string parameterName="")
         {
             _target = inputObject;
+            if (!string.IsNullOrEmpty(parameterName))
+                _parameterName = parameterName;
         }
 
         /// <summary>
@@ -22,7 +25,7 @@ namespace FluentValidation.Validators
         public AndCriteria<ObjectValidator> IsNotNull()
         {
             if (_target == null)
-                throw new ArgumentNullException(nameof(_target), $"Input object argument should be not null but found null");
+                throw new ArgumentNullException(_parameterName, $"Input object argument should be not null but found null");
 
             return new AndCriteria<ObjectValidator>(this);
         }
