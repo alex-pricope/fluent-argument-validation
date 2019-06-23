@@ -49,7 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CriteriaTests.cs" />
     <Compile Include="Validators\NullableDateTimeValidationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validators\NullableNumeric\Factory\SignedNullableNumericFactory.cs" />
@@ -58,13 +57,13 @@
     <Compile Include="Validators\NullableNumeric\UnsignedNullableValidatorTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FluentValidation\FluentValidation.csproj">
-      <Project>{CD82979B-3888-4771-BC83-F894A2346016}</Project>
-      <Name>FluentValidation</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\FluentValidation\FluentValidation.csproj">
+      <Project>{cd82979b-3888-4771-bc83-f894a2346016}</Project>
+      <Name>FluentValidation</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

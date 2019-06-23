@@ -47,12 +47,12 @@ namespace FluentValidation.Validators
         }
 
         /// <summary>
-        /// Check if the number is less then an input max value
+        /// Check if the number is less than an input max value
         /// </summary>
         /// <param name="maxValue">The input max value</param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         /// <returns></returns>
-        public AndCriteria<NumericValidator<T>> IsLessThen(T maxValue)
+        public AndCriteria<NumericValidator<T>> IsLessThan(T maxValue)
         {
             if (_target.CompareTo(maxValue) > 0)
                 throw new ArgumentOutOfRangeException(_parameterName,
@@ -62,12 +62,12 @@ namespace FluentValidation.Validators
         }
 
         /// <summary>
-        /// Check if the number is greater then an input min value
+        /// Check if the number is greater than an input min value
         /// </summary>
         /// <param name="minValue">The input min value</param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         /// <returns></returns>
-        public AndCriteria<NumericValidator<T>> IsGreaterThen(T minValue)
+        public AndCriteria<NumericValidator<T>> IsGreaterThan(T minValue)
         {
             if (_target.CompareTo(minValue) < 0)
                 throw new ArgumentOutOfRangeException(_parameterName,

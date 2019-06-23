@@ -162,7 +162,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsLessThen(maxNumericValue);
+                        .ValueIsLessThan(maxNumericValue);
                 },
 
                 () =>
@@ -172,7 +172,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsLessThen(maxNumericValue);
+                        .ValueIsLessThan(maxNumericValue);
                 },
 
                 () =>
@@ -182,7 +182,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsLessThen(maxNumericValue);
+                        .ValueIsLessThan(maxNumericValue);
                 },
 
                 () =>
@@ -192,7 +192,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsLessThen(maxNumericValue);
+                        .ValueIsLessThan(maxNumericValue);
                 },
 
                 () =>
@@ -202,7 +202,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsLessThen(maxNumericValue);
+                        .ValueIsLessThan(maxNumericValue);
                 },
 
                 () =>
@@ -212,7 +212,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsLessThen(maxNumericValue);
+                        .ValueIsLessThan(maxNumericValue);
                 },
             };
 
@@ -238,7 +238,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsLessThen(maxNumericValue);
+                        .ValueIsLessThan(maxNumericValue);
                 },
 
                 () =>
@@ -248,7 +248,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsLessThen(maxNumericValue);
+                        .ValueIsLessThan(maxNumericValue);
                 },
 
                 () =>
@@ -258,7 +258,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsLessThen(maxNumericValue);
+                        .ValueIsLessThan(maxNumericValue);
                 },
 
                 () =>
@@ -268,7 +268,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsLessThen(maxNumericValue);
+                        .ValueIsLessThan(maxNumericValue);
                 },
 
                 () =>
@@ -278,7 +278,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsLessThen(maxNumericValue);
+                        .ValueIsLessThan(maxNumericValue);
                 },
 
                 () =>
@@ -288,7 +288,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsLessThen(maxNumericValue);
+                        .ValueIsLessThan(maxNumericValue);
                 },
             };
 
@@ -314,7 +314,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsLessThen(maxNumericValue);
+                        .ValueIsLessThan(maxNumericValue);
                 },
 
                 () =>
@@ -324,7 +324,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsLessThen(maxNumericValue);
+                        .ValueIsLessThan(maxNumericValue);
                 },
 
                 () =>
@@ -334,7 +334,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsLessThen(maxNumericValue);
+                        .ValueIsLessThan(maxNumericValue);
                 },
 
                 () =>
@@ -344,7 +344,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsLessThen(maxNumericValue);
+                        .ValueIsLessThan(maxNumericValue);
                 },
 
                 () =>
@@ -354,7 +354,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsLessThen(maxNumericValue);
+                        .ValueIsLessThan(maxNumericValue);
                 },
 
                 () =>
@@ -364,7 +364,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsLessThen(maxNumericValue);
+                        .ValueIsLessThan(maxNumericValue);
                 },
             };
 
@@ -390,7 +390,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsLessThen(maxNumericValue);
+                        .ValueIsLessThan(maxNumericValue);
                 },
 
                 () =>
@@ -400,7 +400,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsLessThen(maxNumericValue);
+                        .ValueIsLessThan(maxNumericValue);
                 },
 
                 () =>
@@ -410,7 +410,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsLessThen(maxNumericValue);
+                        .ValueIsLessThan(maxNumericValue);
                 },
 
                 () =>
@@ -420,7 +420,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsLessThen(maxNumericValue);
+                        .ValueIsLessThan(maxNumericValue);
                 },
 
                 () =>
@@ -430,7 +430,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsLessThen(maxNumericValue);
+                        .ValueIsLessThan(maxNumericValue);
                 },
 
                 () =>
@@ -440,7 +440,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsLessThen(maxNumericValue);
+                        .ValueIsLessThan(maxNumericValue);
                 },
             };
 
@@ -454,7 +454,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
         }
 
         [Test]
-        public void Given_NullableSignedNumericValue_ThatIsNotGreaterThenAMin_AndPositive_WhenCheck_ValueIsGreaterThen_ThenItThrowsCorrectException()
+        public void Given_NullableSignedNumericValue_ThatIsNotGreaterThenAMin_AndPositive_WhenCheck_ValueIsGreaterThan_ThenItThrowsCorrectException()
         {
             //Arrange
             var actionsList = new List<Action>()
@@ -466,7 +466,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsGreaterThen(minNumericValue);
+                        .ValueIsGreaterThan(minNumericValue);
                 },
 
                 () =>
@@ -476,7 +476,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsGreaterThen(minNumericValue);
+                        .ValueIsGreaterThan(minNumericValue);
                 },
 
                 () =>
@@ -486,7 +486,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsGreaterThen(minNumericValue);
+                        .ValueIsGreaterThan(minNumericValue);
                 },
 
                 () =>
@@ -496,7 +496,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsGreaterThen(minNumericValue);
+                        .ValueIsGreaterThan(minNumericValue);
                 },
 
                 () =>
@@ -506,7 +506,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsGreaterThen(minNumericValue);
+                        .ValueIsGreaterThan(minNumericValue);
                 },
 
                 () =>
@@ -516,7 +516,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsGreaterThen(minNumericValue);
+                        .ValueIsGreaterThan(minNumericValue);
                 },
             };
 
@@ -531,7 +531,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
         }
 
         [Test]
-        public void Given_NullableSignedNumericValue_ThatIsGreaterThenAMin_AndPositive_WhenCheck_ValueIsGreaterThen_ThenItDoesNotThrow()
+        public void Given_NullableSignedNumericValue_ThatIsGreaterThenAMin_AndPositive_WhenCheck_ValueIsGreaterThan_ThenItDoesNotThrow()
         {
             //Arrange
             var actionsList = new List<Action>()
@@ -543,7 +543,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsGreaterThen(minNumericValue);
+                        .ValueIsGreaterThan(minNumericValue);
                 },
 
                 () =>
@@ -553,7 +553,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsGreaterThen(minNumericValue);
+                        .ValueIsGreaterThan(minNumericValue);
                 },
 
                 () =>
@@ -563,7 +563,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsGreaterThen(minNumericValue);
+                        .ValueIsGreaterThan(minNumericValue);
                 },
 
                 () =>
@@ -573,7 +573,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsGreaterThen(minNumericValue);
+                        .ValueIsGreaterThan(minNumericValue);
                 },
 
                 () =>
@@ -583,7 +583,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsGreaterThen(minNumericValue);
+                        .ValueIsGreaterThan(minNumericValue);
                 },
 
                 () =>
@@ -593,7 +593,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsGreaterThen(minNumericValue);
+                        .ValueIsGreaterThan(minNumericValue);
                 },
             };
 
@@ -607,7 +607,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
         }
 
         [Test]
-        public void Given_NullableSignedNumericValue_ThatIsNotGreaterThenAMin_AndNegative_WhenCheck_ValueIsGreaterThen_ThenItThrowsCorrectException()
+        public void Given_NullableSignedNumericValue_ThatIsNotGreaterThenAMin_AndNegative_WhenCheck_ValueIsGreaterThan_ThenItThrowsCorrectException()
         {
             //Arrange
             var actionsList = new List<Action>()
@@ -619,7 +619,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsGreaterThen(minNumericValue);
+                        .ValueIsGreaterThan(minNumericValue);
                 },
 
                 () =>
@@ -629,7 +629,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsGreaterThen(minNumericValue);
+                        .ValueIsGreaterThan(minNumericValue);
                 },
 
                 () =>
@@ -639,7 +639,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsGreaterThen(minNumericValue);
+                        .ValueIsGreaterThan(minNumericValue);
                 },
 
                 () =>
@@ -649,7 +649,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsGreaterThen(minNumericValue);
+                        .ValueIsGreaterThan(minNumericValue);
                 },
 
                 () =>
@@ -659,7 +659,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsGreaterThen(minNumericValue);
+                        .ValueIsGreaterThan(minNumericValue);
                 },
 
                 () =>
@@ -669,7 +669,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsGreaterThen(minNumericValue);
+                        .ValueIsGreaterThan(minNumericValue);
                 },
             };
 
@@ -684,7 +684,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
         }
 
         [Test]
-        public void Given_NullableSignedNumericValue_ThatIsGreaterThenAMin_AndNegative_WhenCheck_ValueIsGreaterThen_ThenItDoesNotThrow()
+        public void Given_NullableSignedNumericValue_ThatIsGreaterThenAMin_AndNegative_WhenCheck_ValueIsGreaterThan_ThenItDoesNotThrow()
         {
             //Arrange
             var actionsList = new List<Action>()
@@ -696,7 +696,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsGreaterThen(minNumericValue);
+                        .ValueIsGreaterThan(minNumericValue);
                 },
 
                 () =>
@@ -706,7 +706,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsGreaterThen(minNumericValue);
+                        .ValueIsGreaterThan(minNumericValue);
                 },
 
                 () =>
@@ -716,7 +716,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsGreaterThen(minNumericValue);
+                        .ValueIsGreaterThan(minNumericValue);
                 },
 
                 () =>
@@ -726,7 +726,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsGreaterThen(minNumericValue);
+                        .ValueIsGreaterThan(minNumericValue);
                 },
 
                 () =>
@@ -736,7 +736,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsGreaterThen(minNumericValue);
+                        .ValueIsGreaterThan(minNumericValue);
                 },
 
                 () =>
@@ -746,7 +746,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
 
                     numericValue
                         .Check()
-                        .ValueIsGreaterThen(minNumericValue);
+                        .ValueIsGreaterThan(minNumericValue);
                 },
             };
 

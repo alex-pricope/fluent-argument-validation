@@ -31,29 +31,29 @@ namespace FluentValidation.Validators
         }
 
         /// <summary>
-        /// Check if the DateTime value is greater then an input min DateTime
+        /// Check if the DateTime value is greater than an input min DateTime
         /// </summary>
         /// <param name="minValue">The input min value</param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         /// <returns></returns>
-        public AndCriteria<DateTimeValidator> IsGreaterThen(DateTime minValue)
+        public AndCriteria<DateTimeValidator> IsGreaterThan(DateTime minValue)
         {
             IsValid();
 
             if (_target < minValue)
                 throw new ArgumentOutOfRangeException(
-                    _parameterName, $"Input DateTime argument should be greater then {minValue} but found {_target}");
+                    _parameterName, $"Input DateTime argument should be greater than {minValue} but found {_target}");
 
             return new AndCriteria<DateTimeValidator>(this);
         }
 
         /// <summary>
-        /// Check if the DateTime value is less then an input max DateTime
+        /// Check if the DateTime value is less than an input max DateTime
         /// </summary>
         /// <param name="maxValue">The input max value</param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         /// <returns></returns>
-        public AndCriteria<DateTimeValidator> IsLessThen(DateTime maxValue)
+        public AndCriteria<DateTimeValidator> IsLessThan(DateTime maxValue)
         {
             IsValid();
 

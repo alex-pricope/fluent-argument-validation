@@ -9,7 +9,7 @@ namespace FluentValidation.Validators
     public sealed class UnsignedNullableNumericValidator<T> where T : struct ,IComparable
     {
         private readonly T? _target;
-        private readonly string _parameterName = "INPUT_UNSIGNED_NUMERIC";
+        private readonly string _parameterName = "INPUT_UNSIGNED_NULLABLE_NUMERIC";
 
         internal UnsignedNullableNumericValidator(T? inputValue, string parameterName = "")
         {
@@ -19,7 +19,7 @@ namespace FluentValidation.Validators
         }
 
         /// <summary>
-        /// Check if the nullable unsigned number has any value (is not null)
+        /// Check if the unsigned nullable number has any value (is not null)
         /// </summary>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         /// <returns></returns>
@@ -32,35 +32,35 @@ namespace FluentValidation.Validators
         }
 
         /// <summary>
-        /// Check if the unsigned nullable number value is less then an input max value
+        /// Check if the unsigned nullable number value is less than an input max value
         /// </summary>
         /// <param name="maxValue">The input max value</param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         /// <returns></returns>
-        public AndCriteria<UnsignedNullableNumericValidator<T>> ValueIsLessThen(T maxValue)
+        public AndCriteria<UnsignedNullableNumericValidator<T>> ValueIsLessThan(T maxValue)
         {
             HasValue();
 
             if (_target.Value.CompareTo(maxValue) > 0)
                 throw new ArgumentOutOfRangeException(
-                    _parameterName, $"Input nullable number argument should not be less then {maxValue} but found {_target}");
+                    _parameterName, $"Input nullable number argument should not be less than {maxValue} but found {_target}");
 
             return new AndCriteria<UnsignedNullableNumericValidator<T>>(this);
         }
 
         /// <summary>
-        /// Check if the unsigned nullable number value is greater then an input min value
+        /// Check if the unsigned nullable number value is greater than an input min value
         /// </summary>
         /// <param name="minValue">The input min value</param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         /// <returns></returns>
-        public AndCriteria<UnsignedNullableNumericValidator<T>> ValueIsGreaterThen(T minValue)
+        public AndCriteria<UnsignedNullableNumericValidator<T>> ValueIsGreaterThan(T minValue)
         {
             HasValue();
 
             if (_target.Value.CompareTo(minValue) < 0)
                 throw new ArgumentOutOfRangeException(
-                    _parameterName, $"Input nullable number argument should be greater then {minValue} but found {_target}");
+                    _parameterName, $"Input nullable number argument should be greater than {minValue} but found {_target}");
 
             return new AndCriteria<UnsignedNullableNumericValidator<T>>(this);
         }

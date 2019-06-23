@@ -9,7 +9,7 @@ namespace FluentValidation.Validators
     public sealed class SignedNullableNumericValidator<T> where T : struct ,IComparable
     {
         private readonly T? _target;
-        private readonly string _parameterName = "INPUT_SIGNED_NUMERIC";
+        private readonly string _parameterName = "INPUT_SIGNED_NULLABLE_NUMERIC";
 
         internal SignedNullableNumericValidator(T? inputValue, string parameterName = "")
         {
@@ -35,11 +35,11 @@ namespace FluentValidation.Validators
         /// <summary>
         /// Check if the signed nullable number is null. If it's anything then null, throws
         /// </summary>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        /// <exception cref="ArgumentNullException"></exception>
         public void IsNull()
         {
             if (_target.HasValue)
-                throw new ArgumentOutOfRangeException(
+                throw new ArgumentNullException(
                     _parameterName, $"Input nullable number argument should be null but found {_target.Value}");
         }
 
@@ -76,35 +76,35 @@ namespace FluentValidation.Validators
         }
 
         /// <summary>
-        /// Check if the signed nullable number value is less then an input max value
+        /// Check if the signed nullable number value is less than an input max value
         /// </summary>
         /// <param name="maxValue">The input max value</param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         /// <returns></returns>
-        public AndCriteria<SignedNullableNumericValidator<T>> ValueIsLessThen(T maxValue)
+        public AndCriteria<SignedNullableNumericValidator<T>> ValueIsLessThan(T maxValue)
         {
             HasValue();
 
             if (_target.Value.CompareTo(maxValue) > 0)
                 throw new ArgumentOutOfRangeException(
-                    _parameterName, $"Input nullable number argument should not be less then {maxValue} but found {_target}");
+                    _parameterName, $"Input nullable number argument should not be less than {maxValue} but found {_target}");
 
             return new AndCriteria<SignedNullableNumericValidator<T>>(this);
         }
 
         /// <summary>
-        /// Check if the signed nullable number value is greater then an input min value
+        /// Check if the signed nullable number value is greater than an input min value
         /// </summary>
         /// <param name="minValue">The input min value</param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         /// <returns></returns>
-        public AndCriteria<SignedNullableNumericValidator<T>> ValueIsGreaterThen(T minValue)
+        public AndCriteria<SignedNullableNumericValidator<T>> ValueIsGreaterThan(T minValue)
         {
             HasValue();
 
             if (_target.Value.CompareTo(minValue) < 0)
                 throw new ArgumentOutOfRangeException(
-                    _parameterName, $"Input nullable number argument should be greater then {minValue} but found {_target}");
+                    _parameterName, $"Input nullable number argument should be greater than {minValue} but found {_target}");
 
             return new AndCriteria<SignedNullableNumericValidator<T>>(this);
         }
