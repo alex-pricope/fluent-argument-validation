@@ -30,7 +30,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
             //Assert
             foreach (var action in actionsList)
             {
-                action.ShouldThrow<ArgumentOutOfRangeException>();
+                action.Should().Throw<ArgumentOutOfRangeException>();
             }
         }
 
@@ -53,7 +53,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
             //Assert
             foreach (var action in actionsList)
             {
-                action.ShouldNotThrow();
+                action.Should().NotThrow();
             }
         }
 
@@ -76,7 +76,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
             //Assert
             foreach (var action in actionsList)
             {
-                action.ShouldThrow<ArgumentOutOfRangeException>();
+                action.Should().Throw<ArgumentOutOfRangeException>();
             }
         }
 
@@ -99,7 +99,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
             //Assert
             foreach (var action in actionsList)
             {
-                action.ShouldNotThrow();
+                action.Should().NotThrow();
             }
         }
 
@@ -122,7 +122,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
             //Assert
             foreach (var action in actionsList)
             {
-                action.ShouldThrow<ArgumentOutOfRangeException>();
+                action.Should().Throw<ArgumentOutOfRangeException>();
             }
         }
 
@@ -145,7 +145,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
             //Assert
             foreach (var action in actionsList)
             {
-                action.ShouldNotThrow();
+                action.Should().NotThrow();
             }
         }
 
@@ -221,7 +221,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
             //Assert
             foreach (var action in actionsList)
             {
-                action.ShouldThrow<ArgumentOutOfRangeException>();
+                action.Should().Throw<ArgumentOutOfRangeException>();
             }
         }
 
@@ -297,7 +297,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
             //Assert
             foreach (var action in actionsList)
             {
-                action.ShouldNotThrow();
+                action.Should().NotThrow();
             }
         }
 
@@ -373,7 +373,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
             //Assert
             foreach (var action in actionsList)
             {
-                action.ShouldThrow<ArgumentOutOfRangeException>();
+                action.Should().Throw<ArgumentOutOfRangeException>();
             }
         }
 
@@ -449,7 +449,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
             //Assert
             foreach (var action in actionsList)
             {
-                action.ShouldNotThrow();
+                action.Should().NotThrow();
             }
         }
 
@@ -525,7 +525,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
             //Assert
             foreach (var action in actionsList)
             {
-                action.ShouldThrow<ArgumentOutOfRangeException>();
+                action.Should().Throw<ArgumentOutOfRangeException>();
             }
 
         }
@@ -602,7 +602,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
             //Assert
             foreach (var action in actionsList)
             {
-                action.ShouldNotThrow();
+                action.Should().NotThrow();
             }
         }
 
@@ -678,7 +678,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
             //Assert
             foreach (var action in actionsList)
             {
-                action.ShouldThrow<ArgumentOutOfRangeException>();
+                action.Should().Throw<ArgumentOutOfRangeException>();
             }
 
         }
@@ -755,7 +755,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
             //Assert
             foreach (var action in actionsList)
             {
-                action.ShouldNotThrow();
+                action.Should().NotThrow();
             }
 
         }
@@ -838,7 +838,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
             //Assert
             foreach (var action in actionsList)
             {
-                action.ShouldThrow<ArgumentOutOfRangeException>();
+                action.Should().Throw<ArgumentOutOfRangeException>();
             }
 
         }
@@ -921,7 +921,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
             //Assert
             foreach (var action in actionsList)
             {
-                action.ShouldNotThrow();
+                action.Should().NotThrow();
             }
 
         }
@@ -1004,7 +1004,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
             //Assert
             foreach (var action in actionsList)
             {
-                action.ShouldThrow<ArgumentOutOfRangeException>();
+                action.Should().Throw<ArgumentOutOfRangeException>();
             }
 
         }
@@ -1087,7 +1087,7 @@ namespace FluentValidation.Tests.Validators.NullableNumeric
             //Assert
             foreach (var action in actionsList)
             {
-                action.ShouldNotThrow();
+                action.Should().NotThrow();
             }
 
         }

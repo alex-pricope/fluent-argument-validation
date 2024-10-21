@@ -21,7 +21,7 @@ namespace FluentValidation.Tests.Validators
             };
 
             //Assert
-            act.ShouldThrow<ArgumentOutOfRangeException>();
+            act.Should().Throw<ArgumentOutOfRangeException>();
         }
 
         [Test]
@@ -37,7 +37,7 @@ namespace FluentValidation.Tests.Validators
             };
 
             //Assert
-            act.ShouldNotThrow();
+            act.Should().NotThrow();
         }
 
         [Test]
@@ -53,7 +53,7 @@ namespace FluentValidation.Tests.Validators
             };
 
             //Assert
-            act.ShouldThrow<ArgumentOutOfRangeException>();
+            act.Should().Throw<ArgumentOutOfRangeException>();
         }
 
         [Test]
@@ -69,7 +69,7 @@ namespace FluentValidation.Tests.Validators
             };
 
             //Assert
-            act.ShouldNotThrow();
+            act.Should().NotThrow();
         }
 
         [Test]
@@ -85,7 +85,7 @@ namespace FluentValidation.Tests.Validators
             };
 
             //Assert
-            act.ShouldThrow<ArgumentOutOfRangeException>();
+            act.Should().Throw<ArgumentOutOfRangeException>();
         }
 
         [Test]
@@ -101,7 +101,7 @@ namespace FluentValidation.Tests.Validators
             };
 
             //Assert
-            act.ShouldThrow<ArgumentOutOfRangeException>();
+            act.Should().Throw<ArgumentOutOfRangeException>();
         }
 
         [Test]
@@ -117,7 +117,7 @@ namespace FluentValidation.Tests.Validators
             };
 
             //Assert
-            act.ShouldNotThrow();
+            act.Should().NotThrow();
         }
     }
 }
