@@ -10,10 +10,10 @@ namespace FluentValidation.Validators
         private readonly DateTime _target;
         private readonly string _parameterName = "INPUT_DATETIME";
 
-        internal DateTimeValidator(DateTime inputDateTime, string parameterName="")
+        internal DateTimeValidator(DateTime input, string parameterName="")
         {
-            _target = inputDateTime;
-            if (!string.IsNullOrEmpty(parameterName))
+            _target = input;
+            if (!string.IsNullOrWhiteSpace(parameterName))
                 _parameterName = parameterName;
         }
 

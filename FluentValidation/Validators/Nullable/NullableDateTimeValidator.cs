@@ -10,22 +10,22 @@ namespace FluentValidation.Validators
         private readonly DateTime? _target;
         private readonly string _parameterName = "INPUT_NULLABLE_DATETIME";
 
-        internal NullableDateTimeValidator(DateTime? inputDateTime, string parameterName = "")
+        internal NullableDateTimeValidator(DateTime? input, string parameterName = "")
         {
-            _target = inputDateTime;
-            if (!string.IsNullOrEmpty(parameterName))
+            _target = input;
+            if (!string.IsNullOrWhiteSpace(parameterName))
                 _parameterName = parameterName;
         }
 
         /// <summary>
         /// Check if the nullable DateTime has any value (is not null)
         /// </summary>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
         public AndCriteria<NullableDateTimeValidator> HasValue()
         {
             if (!_target.HasValue)
-                throw new ArgumentOutOfRangeException(_parameterName, $"Input nullable DateTime argument should have a value but found null");
+                throw new ArgumentNullException(_parameterName, "Input nullable DateTime argument should have a value but found null");
 
             return new AndCriteria<NullableDateTimeValidator>(this);
         }
@@ -33,11 +33,11 @@ namespace FluentValidation.Validators
         /// <summary>
         /// Check if the nullable DateTime is null. If it's anything then null, throws
         /// </summary>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        /// <exception cref="ArgumentException"></exception>
         public void IsNull()
         {
             if (_target.HasValue)
-                throw new ArgumentOutOfRangeException(
+                throw new ArgumentException(
                     _parameterName, $"Input nullable DateTime argument should be null but found {_target.Value}");
         }
 

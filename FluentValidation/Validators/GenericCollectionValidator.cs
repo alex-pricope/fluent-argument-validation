@@ -13,10 +13,10 @@ namespace FluentValidation.Validators
         private readonly IEnumerable<T> _target;
         private readonly string _parameterName = "INPUT_COLLECTION";
 
-        internal GenericCollectionValidator(IEnumerable<T> inputValue, string parameterName = "")
+        internal GenericCollectionValidator(IEnumerable<T> input, string parameterName = "")
         {
-            _target = inputValue;
-            if (!string.IsNullOrEmpty(parameterName))
+            _target = input;
+            if (!string.IsNullOrWhiteSpace(parameterName))
                 _parameterName = parameterName;
         }
 
@@ -29,7 +29,7 @@ namespace FluentValidation.Validators
         {
             IsNotNull();
             if (!_target.Any())
-                throw new ArgumentOutOfRangeException(_parameterName, $"Input collection argument should not be empty");
+                throw new ArgumentOutOfRangeException(_parameterName, "Input collection argument should not be empty");
 
             return new AndCriteria<GenericCollectionValidator<T>>(this);
         }
@@ -42,7 +42,7 @@ namespace FluentValidation.Validators
         public AndCriteria<GenericCollectionValidator<T>> IsNotNull()
         {
             if(_target == null)
-                throw new ArgumentNullException(_parameterName, $"Input collection argument should not be null");
+                throw new ArgumentNullException(_parameterName, "Input collection argument should not be null");
 
             return new AndCriteria<GenericCollectionValidator<T>>(this);
         }

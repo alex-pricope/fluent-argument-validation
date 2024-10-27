@@ -4,6 +4,7 @@ _ReSharper.*
 bin
 obj
 packages
+*.DotSettings
 
 Validation.userprefs
 
@@ -58,3 +59,4 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 /.idea
+*.DotSettings

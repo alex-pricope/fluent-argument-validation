@@ -2,122 +2,121 @@
 using FluentAssertions;
 using NUnit.Framework;
 
-namespace FluentValidation.Tests.Validators
+namespace FluentValidation.Tests.Validators;
+
+[TestFixture]
+[Parallelizable(ParallelScope.All)]
+internal class NullableDateTimeValidationTests
 {
-    [TestFixture]
-    [Parallelizable(ParallelScope.All)]
-    internal class NullableDateTimeValidationTests
+    [Test]
+    public void Given_NullableDateTime_ThatIsNull_WhenCheck_HasValue_ThenItThrowsCorrectException()
     {
-        [Test]
-        public void Given_NullableDateTime_ThatIsNull_WhenCheck_HasValue_ThenItThrowsCorrectException()
+        //Arrange
+        DateTime? nullDateTime = null;
+
+        //Act
+        Action act = () =>
         {
-            //Arrange
-            DateTime? nullDateTime = null;
+            nullDateTime.Check().HasValue();
+        };
 
-            //Act
-            Action act = () =>
-            {
-                nullDateTime.Check().HasValue();
-            };
+        //Assert
+        act.Should().Throw<ArgumentNullException>();
+    }
 
-            //Assert
-            act.Should().Throw<ArgumentOutOfRangeException>();
-        }
+    [Test]
+    public void Given_NullableDateTime_ThatHasValue_WhenCheck_HasValue_ThenItDoesNotThrowException()
+    {
+        //Arrange
+        DateTime? nullDateTime = DateTime.UtcNow;
 
-        [Test]
-        public void Given_NullableDateTime_ThatHasValue_WhenCheck_HasValue_ThenItDoesNotThrowException()
+        //Act
+        Action act = () =>
         {
-            //Arrange
-            DateTime? nullDateTime = DateTime.UtcNow;
+            nullDateTime.Check().HasValue();
+        };
 
-            //Act
-            Action act = () =>
-            {
-                nullDateTime.Check().HasValue();
-            };
+        //Assert
+        act.Should().NotThrow();
+    }
 
-            //Assert
-            act.Should().NotThrow();
-        }
+    [Test]
+    public void Given_NullableDateTime_ThatIsNotNull_WhenCheck_IsNull_ThenItThrowsCorrectException()
+    {
+        //Arrange
+        DateTime? nullDateTime = DateTime.UtcNow;
 
-        [Test]
-        public void Given_NullableDateTime_ThatIsNotNull_WhenCheck_IsNull_ThenItThrowsCorrectException()
+        //Act
+        Action act = () =>
         {
-            //Arrange
-            DateTime? nullDateTime = DateTime.UtcNow;
+            nullDateTime.Check().IsNull();
+        };
 
-            //Act
-            Action act = () =>
-            {
-                nullDateTime.Check().IsNull();
-            };
+        //Assert
+        act.Should().Throw<ArgumentException>();
+    }
 
-            //Assert
-            act.Should().Throw<ArgumentOutOfRangeException>();
-        }
+    [Test]
+    public void Given_NullableDateTime_ThatIsNull_WhenCheck_IsNull_ThenItDoesNotThrowException()
+    {
+        //Arrange
+        DateTime? nullDateTime = null;
 
-        [Test]
-        public void Given_NullableDateTime_ThatIsNull_WhenCheck_IsNull_ThenItDoesNotThrowException()
+        //Act
+        Action act = () =>
         {
-            //Arrange
-            DateTime? nullDateTime = null;
+            nullDateTime.Check().IsNull();
+        };
 
-            //Act
-            Action act = () =>
-            {
-                nullDateTime.Check().IsNull();
-            };
+        //Assert
+        act.Should().NotThrow();
+    }
 
-            //Assert
-            act.Should().NotThrow();
-        }
+    [Test]
+    public void Given_NullableDateTime_ThatIsMinValue_WhenCheck_IsValid_ThenItThrowsCorrectException()
+    {
+        //Arrange
+        DateTime? nullDateTime = DateTime.MinValue;
 
-        [Test]
-        public void Given_NullableDateTime_ThatIsMinValue_WhenCheck_IsValid_ThenItThrowsCorrectException()
+        //Act
+        Action act = () =>
         {
-            //Arrange
-            DateTime? nullDateTime = DateTime.MinValue;
+            nullDateTime.Check().IsValid();
+        };
 
-            //Act
-            Action act = () =>
-            {
-                nullDateTime.Check().IsValid();
-            };
+        //Assert
+        act.Should().Throw<ArgumentOutOfRangeException>();
+    }
 
-            //Assert
-            act.Should().Throw<ArgumentOutOfRangeException>();
-        }
+    [Test]
+    public void Given_NullableDateTime_ThatIsMaxValue_WhenCheck_IsValid_ThenItThrowsCorrectException()
+    {
+        //Arrange
+        DateTime? nullDateTime = DateTime.MaxValue;
 
-        [Test]
-        public void Given_NullableDateTime_ThatIsMaxValue_WhenCheck_IsValid_ThenItThrowsCorrectException()
+        //Act
+        Action act = () =>
         {
-            //Arrange
-            DateTime? nullDateTime = DateTime.MaxValue;
+            nullDateTime.Check().IsValid();
+        };
 
-            //Act
-            Action act = () =>
-            {
-                nullDateTime.Check().IsValid();
-            };
+        //Assert
+        act.Should().Throw<ArgumentOutOfRangeException>();
+    }
 
-            //Assert
-            act.Should().Throw<ArgumentOutOfRangeException>();
-        }
+    [Test]
+    public void Given_NullableDateTime_ThatHasAGoodValue_WhenCheck_IsValid_ThenItDoesNotThrow()
+    {
+        //Arrange
+        DateTime? nullDateTime = DateTime.UtcNow;
 
-        [Test]
-        public void Given_NullableDateTime_ThatHasAGoodValue_WhenCheck_IsValid_ThenItDoesNotThrow()
+        //Act
+        Action act = () =>
         {
-            //Arrange
-            DateTime? nullDateTime = DateTime.UtcNow;
+            nullDateTime.Check().IsValid();
+        };
 
-            //Act
-            Action act = () =>
-            {
-                nullDateTime.Check().IsValid();
-            };
-
-            //Assert
-            act.Should().NotThrow();
-        }
+        //Assert
+        act.Should().NotThrow();
     }
 }

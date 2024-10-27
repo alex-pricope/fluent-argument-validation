@@ -10,10 +10,10 @@ namespace FluentValidation.Validators
         private readonly object _target;
         private readonly string _parameterName = "INPUT_OBJECT";
 
-        internal ObjectValidator(object inputObject, string parameterName="")
+        internal ObjectValidator(object input, string parameterName="")
         {
-            _target = inputObject;
-            if (!string.IsNullOrEmpty(parameterName))
+            _target = input;
+            if (!string.IsNullOrWhiteSpace(parameterName))
                 _parameterName = parameterName;
         }
 
@@ -25,7 +25,7 @@ namespace FluentValidation.Validators
         public AndCriteria<ObjectValidator> IsNotNull()
         {
             if (_target == null)
-                throw new ArgumentNullException(_parameterName, $"Input object argument should be not null but found null");
+                throw new ArgumentNullException(_parameterName, "Input object argument should be not null but found null");
 
             return new AndCriteria<ObjectValidator>(this);
         }
@@ -55,7 +55,7 @@ namespace FluentValidation.Validators
         {
             if (_target.GetType().IsValueType)
                 throw new ArgumentException(
-                    $"Input object argument should be a reference type but found value type");
+                    "Input object argument should be a reference type but found value type");
 
             return new AndCriteria<ObjectValidator>(this);
         }
@@ -69,7 +69,7 @@ namespace FluentValidation.Validators
         {
             if (!_target.GetType().IsValueType)
                 throw new ArgumentException(
-                    $"Input object argument should be a value type but found reference type");
+                    "Input object argument should be a value type but found reference type");
 
             return new AndCriteria<ObjectValidator>(this);
         }

@@ -11,10 +11,10 @@ namespace FluentValidation.Validators
         private readonly IComparable<T> _target;
         private readonly string _parameterName = "INPUT_NUMERIC";
 
-        internal NumericValidator(T inputValue, string parameterName = "")
+        internal NumericValidator(T input, string parameterName = "")
         {
-            _target = (IComparable<T>) inputValue;
-            if (!string.IsNullOrEmpty(parameterName))
+            _target = (IComparable<T>) input;
+            if (!string.IsNullOrWhiteSpace(parameterName))
                 _parameterName = parameterName;
         }
 

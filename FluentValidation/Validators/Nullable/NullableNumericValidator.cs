@@ -7,10 +7,10 @@ namespace FluentValidation.Validators
         private readonly T? _target;
         private readonly string _parameterName = "INPUT_NULLABLE_NUMERIC";
 
-        public NullableNumericValidator(T? inputValue, string parameterName = "")
+        public NullableNumericValidator(T? input, string parameterName = "")
         {
-            _target = inputValue;
-            if (!string.IsNullOrEmpty(parameterName))
+            _target = input;
+            if (!string.IsNullOrWhiteSpace(parameterName))
                 _parameterName = parameterName;
         }
 
@@ -22,7 +22,7 @@ namespace FluentValidation.Validators
         public AndCriteria<NullableNumericValidator<T>> HasValue()
         {
             if (!_target.HasValue)
-                throw new ArgumentOutOfRangeException(_parameterName, $"Input nullable number argument should have a value but found null");
+                throw new ArgumentNullException(_parameterName, "Input nullable number argument should have a value but found null");
 
             return new AndCriteria<NullableNumericValidator<T>>(this);
         }
@@ -34,7 +34,7 @@ namespace FluentValidation.Validators
         public void IsNull()
         {
             if (_target.HasValue)
-                throw new ArgumentNullException(_parameterName,
+                throw new ArgumentException(_parameterName,
                     $"Input nullable number argument should be null but found {_target.Value}");
         }
 

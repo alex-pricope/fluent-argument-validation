@@ -14,104 +14,118 @@ namespace FluentValidation
     {
         //OBJECT
         [Pure]
-        public static ObjectValidator Check(this object inputObject, string parameterName = "")
+        public static ObjectValidator Check(this object input, string argName = "")
         {
-            return new ObjectValidator(inputObject, parameterName);
+            return new ObjectValidator(input, argName);
         }
 
         //DATE_TIME
         [Pure]
-        public static DateTimeValidator Check(this DateTime inputDateTime, string parameterName = "")
+        public static DateTimeValidator Check(this DateTime input, string argName = "")
         {
-            return new DateTimeValidator(inputDateTime, parameterName);
+            return new DateTimeValidator(input, argName);
         }
 
         //STRING
         [Pure]
-        public static StringValidator Check(this string inputValue, string parameterName = "")
+        public static StringValidator Check(this string input, string argName = "")
         {
-            return new StringValidator(inputValue, parameterName);
+            return new StringValidator(input, argName);
         }
 
         //IENUMERABLE
         [Pure]
-        public static GenericCollectionValidator<T> Check<T>(this IEnumerable<T> inputCollection, string parameterName = "")
+        public static GenericCollectionValidator<T> Check<T>(this IEnumerable<T> input, string argName = "")
         {
-            return new GenericCollectionValidator<T>(inputCollection, parameterName);
+            return new GenericCollectionValidator<T>(input, argName);
         }
 
         //IDICTIONARY
         [Pure]
-        public static GenericDictionaryValidator<TKey, TValue> Check<TKey, TValue>(this IDictionary<TKey, TValue> inputDictionary, string parameterName = "")
+        public static GenericDictionaryValidator<TKey, TValue> Check<TKey, TValue>(this IDictionary<TKey, TValue> input, string argName = "")
         {
-            return new GenericDictionaryValidator<TKey, TValue>(inputDictionary, parameterName);
+            return new GenericDictionaryValidator<TKey, TValue>(input, argName);
+        }
+        
+        //BOOLEAN
+        [Pure]
+        public static BooleanValidator Check(this bool input, string argName = "")
+        {
+            return new BooleanValidator(input, argName);
+        }
+        
+        //GUID
+        [Pure]
+        public static GuidValidator Check(this Guid input, string argName = "")
+        {
+            return new GuidValidator(input, argName);
         }
 
         //NUMERIC
         [Pure]
-        public static NumericValidator<int> Check(this int inputValue, string parameterName = "")
+        public static NumericValidator<int> Check(this int input, string argName = "")
         {
-            return new NumericValidator<int>(inputValue, parameterName);
+            return new NumericValidator<int>(input, argName);
         }
 
         [Pure]
-        public static NumericValidator<uint> Check(this uint inputValue, string parameterName = "")
+        public static NumericValidator<uint> Check(this uint input, string argName = "")
         {
-            return new NumericValidator<uint>(inputValue, parameterName);
+            return new NumericValidator<uint>(input, argName);
         }
 
         [Pure]
-        public static NumericValidator<long> Check(this long inputValue, string parameterName = "")
+        public static NumericValidator<long> Check(this long input, string argName = "")
         {
-            return new NumericValidator<long>(inputValue, parameterName);
+            return new NumericValidator<long>(input, argName);
         }
 
         [Pure]
-        public static NumericValidator<ulong> Check(this ulong inputValue, string parameterName = "")
+        public static NumericValidator<ulong> Check(this ulong input, string argName = "")
         {
-            return new NumericValidator<ulong>(inputValue, parameterName);
+            return new NumericValidator<ulong>(input, argName);
         }
 
         [Pure]
-        public static NumericValidator<decimal> Check(this decimal inputValue, string parameterName = "")
+        public static NumericValidator<decimal> Check(this decimal input, string argName = "")
         {
-            return new NumericValidator<decimal>(inputValue, parameterName);
+            return new NumericValidator<decimal>(input, argName);
         }
 
         [Pure]
-        public static NumericValidator<float> Check(this float inputValue, string parameterName = "")
+        public static NumericValidator<float> Check(this float input, string argName = "")
         {
-            return new NumericValidator<float>(inputValue, parameterName);
+            return new NumericValidator<float>(input, argName);
         }
 
         [Pure]
-        public static NumericValidator<short> Check(this short inputValue, string parameterName = "")
+        public static NumericValidator<short> Check(this short input, string argName = "")
         {
-            return new NumericValidator<short>(inputValue, parameterName);
+            return new NumericValidator<short>(input, argName);
         }
 
         [Pure]
-        public static NumericValidator<ushort> Check(this ushort inputValue, string parameterName = "")
+        public static NumericValidator<ushort> Check(this ushort input, string argName = "")
         {
-            return new NumericValidator<ushort>(inputValue, parameterName);
+            return new NumericValidator<ushort>(input, argName);
         }
 
         [Pure]
-        public static NumericValidator<byte> Check(this byte inputValue, string parameterName = "")
+        public static NumericValidator<byte> Check(this byte input, string argName = "")
         {
-            return new NumericValidator<byte>(inputValue, parameterName);
+            return new NumericValidator<byte>(input, argName);
         }
 
         [Pure]
-        public static NumericValidator<sbyte> Check(this sbyte inputValue, string parameterName = "")
+        public static NumericValidator<sbyte> Check(this sbyte input, string argName = "")
         {
-            return new NumericValidator<sbyte>(inputValue, parameterName);
+            return new NumericValidator<sbyte>(input, argName);
         }
 
         [Pure]
-        public static NumericValidator<double> Check(this double inputValue, string parameterName = "")
+        public static NumericValidator<double> Check(this double input, string argName = "")
         {
-            return new NumericValidator<double>(inputValue, parameterName);
+            return new NumericValidator<double>(input, argName);
         }
     }
 }

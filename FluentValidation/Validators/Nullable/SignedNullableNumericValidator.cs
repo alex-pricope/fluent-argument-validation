@@ -11,22 +11,22 @@ namespace FluentValidation.Validators
         private readonly T? _target;
         private readonly string _parameterName = "INPUT_SIGNED_NULLABLE_NUMERIC";
 
-        internal SignedNullableNumericValidator(T? inputValue, string parameterName = "")
+        internal SignedNullableNumericValidator(T? input, string parameterName = "")
         {
-            _target = inputValue;
-            if (!string.IsNullOrEmpty(parameterName))
+            _target = input;
+            if (!string.IsNullOrWhiteSpace(parameterName))
                 _parameterName = parameterName;
         }
 
         /// <summary>
         /// Check if the signed nullable number has any value (is not null)
         /// </summary>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
         public AndCriteria<SignedNullableNumericValidator<T>> HasValue()
         {
             if (!_target.HasValue)
-                throw new ArgumentOutOfRangeException(_parameterName, $"Input nullable number argument should have a value but found null");
+                throw new ArgumentNullException(_parameterName, "Input nullable number argument should have a value but found null");
 
             return new AndCriteria<SignedNullableNumericValidator<T>>(this);
         }
@@ -35,11 +35,11 @@ namespace FluentValidation.Validators
         /// <summary>
         /// Check if the signed nullable number is null. If it's anything then null, throws
         /// </summary>
-        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
         public void IsNull()
         {
             if (_target.HasValue)
-                throw new ArgumentNullException(
+                throw new ArgumentException(
                     _parameterName, $"Input nullable number argument should be null but found {_target.Value}");
         }
 

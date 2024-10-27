@@ -10,21 +10,24 @@ namespace FluentValidation.Validators
         private readonly string _target;
         private readonly string _parameterName = "INPUT_STRING";
 
-        internal StringValidator(string inputValue, string parameterName = "")
+        internal StringValidator(string input, string parameterName = "")
         {
-            _target = inputValue;
-            if (!string.IsNullOrEmpty(parameterName))
+            _target = input;
+            if (!string.IsNullOrWhiteSpace(parameterName))
                 _parameterName = parameterName;
         }
-
-        //TODO: This is from a merge conflict
+        
+        /// <summary>
+        /// Check if a string is empty
+        /// </summary>
+        /// <exception cref="ArgumentNullException"></exception>
         public void IsEmpty()
         {
             if (!string.IsNullOrWhiteSpace(_target) || !string.IsNullOrEmpty(_target))
                 throw new ArgumentNullException(_parameterName,$"Input string argument should empty but found {_target}");
         }
 
-         /// <summary>
+        /// <summary>
         /// Check if the string is not empty
         /// </summary>
         /// <exception cref="ArgumentNullException"></exception>
@@ -32,13 +35,13 @@ namespace FluentValidation.Validators
         public AndCriteria<StringValidator> IsNotEmpty()
         {
             if (string.IsNullOrWhiteSpace(_target)|| string.IsNullOrEmpty(_target))
-                throw new ArgumentNullException(_parameterName, $"Input string argument should not be empty");
+                throw new ArgumentNullException(_parameterName, "Input string argument should not be empty");
 
             return new AndCriteria<StringValidator>(this);
         }
-
+        
         /// <summary>
-        /// Check if the string length is greater then an input min length
+        /// Check if the string length is greater than an input min length
         /// </summary>
         /// <param name="minLengthValue">The input min length</param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
@@ -55,7 +58,7 @@ namespace FluentValidation.Validators
         }
 
         /// <summary>
-        /// Check if the string length is less then an max input length
+        /// Check if the string length is less then a max input length
         /// </summary>
         /// <param name="maxLengthValue">The input max length</param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>

@@ -14,10 +14,10 @@ namespace FluentValidation.Validators
         private readonly IDictionary<TKey, TValue> _target;
         private readonly string _parameterName = "INPUT_DICTIONARY";
 
-        internal GenericDictionaryValidator(IDictionary<TKey, TValue> inputCollection, string parameterName)
+        internal GenericDictionaryValidator(IDictionary<TKey, TValue> input, string parameterName)
         {
-            _target = inputCollection;
-            if (!string.IsNullOrEmpty(parameterName))
+            _target = input;
+            if (!string.IsNullOrWhiteSpace(parameterName))
                 _parameterName = parameterName;
         }
 
@@ -58,7 +58,7 @@ namespace FluentValidation.Validators
         }
 
         /// <summary>
-        /// Check if the dictionary has a key count greater then an input min keys count
+        /// Check if the dictionary has a key count greater than an input min keys count
         /// </summary>
         /// <param name="minKeysCountValue">The input min keys count</param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
@@ -83,7 +83,7 @@ namespace FluentValidation.Validators
         {
             IsNotNull();
             if (!_target.Any())
-                throw new ArgumentOutOfRangeException(_parameterName, $"Input dictionary argument should not be empty");
+                throw new ArgumentOutOfRangeException(_parameterName, "Input dictionary argument should not be empty");
 
             return new AndCriteria<GenericDictionaryValidator<TKey, TValue>>(this);
         }
@@ -96,7 +96,7 @@ namespace FluentValidation.Validators
         public AndCriteria<GenericDictionaryValidator<TKey, TValue>> IsNotNull()
         {
             if (_target == null)
-                throw new ArgumentNullException(_parameterName, $"Input dictionary argument should not be null");
+                throw new ArgumentNullException(_parameterName, "Input dictionary argument should not be null");
 
             return new AndCriteria<GenericDictionaryValidator<TKey, TValue>>(this);
         }

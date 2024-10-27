@@ -11,22 +11,22 @@ namespace FluentValidation.Validators
         private readonly T? _target;
         private readonly string _parameterName = "INPUT_UNSIGNED_NULLABLE_NUMERIC";
 
-        internal UnsignedNullableNumericValidator(T? inputValue, string parameterName = "")
+        internal UnsignedNullableNumericValidator(T? input, string parameterName = "")
         {
-            _target = inputValue;
-            if (!string.IsNullOrEmpty(parameterName))
+            _target = input;
+            if (!string.IsNullOrWhiteSpace(parameterName))
                 _parameterName = parameterName;
         }
 
         /// <summary>
         /// Check if the unsigned nullable number has any value (is not null)
         /// </summary>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
         public AndCriteria<UnsignedNullableNumericValidator<T>> HasValue()
         {
             if (!_target.HasValue)
-                throw new ArgumentOutOfRangeException(_parameterName, $"Input nullable number argument should have a value but found null");
+                throw new ArgumentNullException(_parameterName, "Input nullable number argument should have a value but found null");
 
             return new AndCriteria<UnsignedNullableNumericValidator<T>>(this);
         }
